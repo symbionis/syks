@@ -6,11 +6,11 @@ const HeroSection = () => {
     <section className="relative min-h-screen bg-navy flex items-center overflow-hidden">
       {/* Geometric decorations */}
       {/* Large arch bleeding off right edge */}
-      <div className="absolute right-[-15%] top-[10%] w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] animate-drift pointer-events-none">
+      <div className="absolute right-[-20%] top-[5%] w-[75vw] h-[75vw] max-w-[900px] max-h-[900px] animate-drift pointer-events-none">
         <svg viewBox="0 0 400 400" className="w-full h-full" aria-hidden="true">
           <path
             d="M400 400 L400 200 A200 200 0 0 0 0 200 L0 400 Z"
-            fill="hsl(216 67% 40% / 0.12)"
+            fill="hsl(216 67% 40% / 0.18)"
           />
         </svg>
       </div>
