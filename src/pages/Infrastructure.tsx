@@ -458,7 +458,7 @@ const Infrastructure = () => {
         </section>
 
         {/* ─── CTA ─── */}
-        <section className="bg-background py-20 lg:py-24">
+        <section className="bg-secondary py-20 lg:py-24">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <FadeInSection>
               <p className="text-foreground/[0.82] text-body leading-relaxed max-w-2xl mx-auto">
