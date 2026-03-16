@@ -15,10 +15,10 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      {/* Small lime circle bottom-left */}
-      <div className="absolute left-[8%] bottom-[12%] w-24 h-24 lg:w-32 lg:h-32 animate-drift-reverse pointer-events-none">
+      {/* Large lime circle bleeding off bottom-left */}
+      <div className="absolute -left-[120px] -bottom-[120px] w-[360px] h-[360px] animate-drift-reverse pointer-events-none">
         <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden="true">
-          <circle cx="50" cy="50" r="50" fill="hsl(71 64% 63% / 0.15)" />
+          <circle cx="50" cy="50" r="50" fill="hsl(71 64% 63% / 0.12)" />
         </svg>
       </div>
 
