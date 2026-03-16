@@ -238,8 +238,8 @@ const Infrastructure = () => {
           <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="flex items-center gap-3 mb-4">
-                <svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true">
-                  <path d="M0 14 A11 11 0 0 1 22 14" fill="hsl(71 64% 63%)" />
+              <svg width="18" height="24" viewBox="0 0 18 24" aria-hidden="true">
+                  <path d="M2 24 L2 9 A7 7 0 0 1 16 9 L16 24" fill="none" stroke="hsl(71 64% 63%)" strokeWidth="3" />
                 </svg>
                 <span className="text-xs font-medium tracking-widest uppercase text-foreground/50">Layer 2</span>
               </div>
