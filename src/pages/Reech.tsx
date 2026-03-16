@@ -7,27 +7,27 @@ import FadeInSection from '@/components/FadeInSection';
 const stakeholders = [
   {
     title: 'Corporates',
-    summary: 'Finance deep decarbonisation without straining balance sheets.',
+    summary: 'Mobilise external capital for large-scale decarbonisation.',
     detail:
-      'REECH enables corporates to externalise the capital requirements of their transition plans by connecting them to structured investment vehicles. Rather than funding capital-intensive initiatives through internal budgets, corporates can package verified emission reduction projects into the REECH framework — accessing institutional capital while retaining strategic control over their decarbonisation trajectory. Every initiative is independently verified through Proof of Execution, transforming sustainability commitments from reporting exercises into auditable, investable programmes.',
+      'Structure your climate transition pipeline into an investable, revenue-generating framework. Mobilise external institutional capital for capital-intensive initiatives without diverting core operating budgets. The framework works within existing corporate strategy, sustainability indices, executive incentive structures, and reporting frameworks. Climate commitments become forward-looking, tradable assets that preserve liquidity while accelerating the transition.',
   },
   {
     title: 'Investors',
-    summary: 'Access verified, impact-linked returns through regulated instruments.',
+    summary: 'Impact-linked returns with institutional-grade assurance.',
     detail:
-      'REECH provides institutional investors with a new asset class that delivers competitive financial returns alongside independently verified environmental outcomes. Digital Impact Units are structured as regulated securities within recognised investment frameworks, offering fractional ownership, enhanced liquidity, and full transparency. Investors benefit from continuous verification — not retrospective reporting — ensuring that every unit of impact is backed by measurable, real-economy emission reductions.',
+      'Access a new, scalable asset class through the Digital Impact Unit. Each DIU is a regulated security backed by a diversified portfolio of verified climate initiatives. The IVE ensures impact claims are verified independently. Accumulator contracts enforce milestone-based capital release. Insurance integration further derisks the asset. Returns and impact tracked on separate but linked ledgers \u2014 transparent, auditable, institutional-grade.',
   },
   {
     title: 'Project Developers',
-    summary: 'Unlock financing for high-impact climate initiatives.',
+    summary: 'Structured, milestone-based funding for climate solutions.',
     detail:
-      'Project developers gain access to structured financing through REECH\u2019s accumulator contracts, which transform long-horizon climate initiatives into bankable propositions. The framework manages the full lifecycle — from commitment issuance through verification to value capture — removing the administrative burden of bespoke fundraising. Developers focus on delivery; REECH handles the financial architecture, verification, and compliance.',
+      'Access structured capital through a transparent, milestone-based process. The accumulator framework releases funding progressively as execution is verified. You focus on delivery. The infrastructure handles verification, reporting, and capital management. Dynamic pricing rewards performance and incentivises impact overachievement.',
   },
   {
     title: 'Financial Institutions',
-    summary: 'Integrate verified climate assets into existing product lines.',
+    summary: 'Expand sustainable finance and digital asset capabilities.',
     detail:
-      'Banks, asset managers, and insurance companies can use REECH to embed verified climate impact into their product offerings. The framework\u2019s modular architecture interfaces with existing financial infrastructure — from fund administration to custody and settlement — enabling institutions to offer climate-linked products without building proprietary verification or registry systems. REECH provides the trust layer; institutions provide the distribution.',
+      'Interface with the REECH framework to originate, distribute, and service Digital Impact Units within existing product offerings. Compliance-first design built around recognised fund structures ensures seamless integration with existing custody, reporting, and regulatory systems.',
   },
 ];
 
@@ -100,7 +100,7 @@ const Reech = () => {
         <section className="bg-canvas py-28 lg:py-36">
           <div className="max-w-[720px] mx-auto px-6">
             <FadeInSection>
-              <span className="text-xs font-medium tracking-widest uppercase text-lime" style={{ color: 'hsl(71 64% 45%)' }}>
+              <span className="text-xs font-medium tracking-widest uppercase" style={{ color: 'hsl(71 64% 45%)' }}>
                 The Challenge
               </span>
               <h2 className="mt-4 text-section text-foreground">
@@ -221,8 +221,8 @@ const Reech = () => {
                   (tag) => (
                     <span
                       key={tag}
-                      className="px-5 py-2.5 text-sm font-medium rounded-sm tracking-wide bg-lime/15 text-foreground"
-                      style={{ borderLeft: '3px solid hsl(71 64% 63%)' }}
+                      className="px-5 py-2.5 text-sm font-medium rounded-sm tracking-wide text-navy"
+                      style={{ backgroundColor: '#d0df61' }}
                     >
                       {tag}
                     </span>
@@ -277,7 +277,7 @@ const Reech = () => {
                     <div
                       className="overflow-hidden transition-all duration-300"
                       style={{
-                        maxHeight: expandedCard === i ? '300px' : '0',
+                        maxHeight: expandedCard === i ? '400px' : '0',
                         opacity: expandedCard === i ? 1 : 0,
                       }}
                     >
@@ -306,26 +306,26 @@ const Reech = () => {
 
             <FadeInSection delay={100}>
               <p className="mt-8 text-foreground/[0.82] text-body leading-relaxed">
-                REECH embeds insurance at the initiative level — not as a cost of compliance, but as a structural component that enhances asset quality and investor confidence. Each climate initiative within the portfolio is individually insured against delivery risk, creating a layer of protection that strengthens the overall credit profile of the fund.
+                Within REECH, insurance is applied at the initiative level — directly tied to the climate activities being financed. Each policy secures both delivery commitments and allocated capital.
               </p>
             </FadeInSection>
 
             <FadeInSection delay={200}>
               <p className="mt-5 text-foreground/[0.82] text-body leading-relaxed">
-                This approach transforms insurance from a passive hedge into an active value driver. By reducing the risk premium associated with climate investments, initiative-level insurance lowers the cost of capital and increases the attractiveness of Digital Impact Units to institutional buyers.
+                Insured commitments gain recognition as tangible assets for accounting purposes. Insurance safeguards capital against initiative-specific risks. And by reducing perceived risk, it enhances DIU attractiveness on secondary markets, contributing directly to liquidity.
               </p>
             </FadeInSection>
 
             <FadeInSection delay={300}>
               <p className="mt-5 text-foreground/[0.82] text-body leading-relaxed">
-                The insurance layer works in concert with Proof of Execution — verified delivery data reduces claims uncertainty, creating a feedback loop that progressively improves coverage terms and pricing over time.
+                Insurance within REECH is more than a safeguard. It transforms climate commitments into insured, bankable assets with the credibility demanded by institutional investors.
               </p>
             </FadeInSection>
           </div>
         </section>
 
         {/* ─── 7. FOOTER CTA ─── */}
-        <section className="bg-navy py-24 lg:py-32">
+        <section className="py-24 lg:py-32" style={{ backgroundColor: '#021d39' }}>
           <div className="max-w-3xl mx-auto px-6 text-center">
             <FadeInSection>
               <p className="text-ivory/80 text-body leading-relaxed max-w-2xl mx-auto">
@@ -337,13 +337,14 @@ const Reech = () => {
               <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   to="/#contact"
-                  className="px-7 py-3.5 bg-lime text-navy font-medium text-sm tracking-wide rounded-sm hover:brightness-110 transition-all duration-200"
+                  className="px-7 py-3.5 font-medium text-sm tracking-wide rounded-sm hover:brightness-110 transition-all duration-200"
+                  style={{ backgroundColor: '#d0df61', color: '#021d39' }}
                 >
                   Get in touch →
                 </Link>
                 <Link
                   to="/ic"
-                  className="px-7 py-3.5 border border-ivory/30 text-ivory font-medium text-sm tracking-wide rounded-sm hover:bg-ivory/5 transition-all duration-200"
+                  className="px-7 py-3.5 border border-ivory/40 text-ivory font-medium text-sm tracking-wide rounded-sm hover:bg-ivory/5 transition-all duration-200"
                 >
                   Explore Integrity Certificates →
                 </Link>
