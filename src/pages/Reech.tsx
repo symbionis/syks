@@ -325,7 +325,7 @@ const Reech = () => {
         </section>
 
         {/* ─── 7. FOOTER CTA ─── */}
-        <section className="bg-secondary py-24 lg:py-32">
+        <section className="bg-background py-24 lg:py-32">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <FadeInSection>
               <p className="text-foreground/[0.82] text-body leading-relaxed max-w-2xl mx-auto">

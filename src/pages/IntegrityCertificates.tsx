@@ -319,7 +319,7 @@ const IntegrityCertificates = () => {
         </section>
 
         {/* ─── 7. INTEGRATION CTA ─── */}
-        <section id="integration" className="bg-secondary py-28 lg:py-36">
+        <section id="integration" className="bg-background py-28 lg:py-36">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <h2 className="text-section text-foreground text-center">
