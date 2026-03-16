@@ -32,12 +32,7 @@ const IntegrityCertificates = () => {
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               {/* IC logo mark */}
-              <div className="w-14 h-14 mb-8 flex items-center justify-center">
-                <svg viewBox="0 0 48 48" className="w-full h-full" aria-hidden="true">
-                  <rect x="4" y="4" width="40" height="40" rx="2" fill="none" stroke="hsl(216 67% 40%)" strokeWidth="2.5" />
-                  <path d="M16 24 L22 30 L33 18" fill="none" stroke="hsl(var(--lime))" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+              <img src={icLogo} alt="Integrity Certificates logo" className="w-16 h-16 mb-8" />
             </FadeInSection>
 
             <FadeInSection delay={100}>
