@@ -81,7 +81,7 @@ const TrustLayersSection = () => {
                 <div className="flex-shrink-0 mt-1">{layer.shape}</div>
                 <div>
                   <h3 className="text-lg font-medium text-foreground">
-                    {layer.name} <span className="text-foreground/50">· {layer.descriptor}</span>
+                    {layer.name} <span className="text-foreground/60">· {layer.descriptor}</span>
                   </h3>
                   <p className="mt-2 text-foreground/60 text-[15px] leading-relaxed">{layer.description}</p>
                 </div>
