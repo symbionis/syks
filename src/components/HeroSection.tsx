@@ -10,7 +10,7 @@ const HeroSection = () => {
         <svg viewBox="0 0 400 400" className="w-full h-full" aria-hidden="true">
           <path
             d="M400 400 L400 200 A200 200 0 0 0 0 200 L0 400 Z"
-            fill="hsl(216 67% 40% / 0.18)"
+            fill="hsl(216 67% 40% / 0.22)"
           />
         </svg>
       </div>
@@ -18,7 +18,7 @@ const HeroSection = () => {
       {/* Large lime circle bleeding off bottom-left */}
       <div className="absolute -left-[120px] -bottom-[120px] w-[360px] h-[360px] animate-drift-reverse pointer-events-none">
         <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden="true">
-          <circle cx="50" cy="50" r="50" fill="hsl(71 64% 63% / 0.12)" />
+          <circle cx="50" cy="50" r="50" fill="hsl(71 64% 63% / 0.20)" />
         </svg>
       </div>
 

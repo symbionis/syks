@@ -26,7 +26,7 @@ const cards = [
 
 const IntegrityCertsSection = () => {
   return (
-    <section className="bg-canvas py-28 lg:py-40">
+    <section className="bg-canvas py-24 lg:py-28">
       <div className="max-w-5xl mx-auto px-6 lg:px-10">
         <FadeInSection>
           <h2 className="text-section text-foreground">Integrity Certificates — The trust engine</h2>
@@ -50,13 +50,13 @@ const IntegrityCertsSection = () => {
         </div>
 
         <FadeInSection delay={600}>
-          <p className="mt-12 text-foreground/50 text-sm max-w-2xl">
+          <p className="mt-14 font-serif italic text-foreground/50 text-center max-w-2xl mx-auto">
             Integrity Certificates transforms climate impact into financial-grade evidence — not by assertion, but by proof.
           </p>
-          <div className="mt-6">
+          <div className="mt-6 text-center">
             <Link
               to="/ic"
-              className="inline-flex items-center text-sm font-medium text-foreground hover:text-accent transition-colors"
+              className="inline-flex items-center text-sm font-medium text-accent underline underline-offset-4 hover:text-foreground transition-colors"
             >
               Explore Integrity Certificates →
             </Link>
