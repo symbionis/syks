@@ -375,16 +375,16 @@ const Infrastructure = () => {
           ref={(el) => { sectionRefs.current['connectivity'] = el; }}
           className="relative bg-canvas py-28 lg:py-40 overflow-hidden border-t border-foreground/[0.06]"
         >
-          {/* Navy dot grid bleeding off right */}
+          {/* Navy dot grid (4×4 large scale) bleeding off right */}
           <div className="absolute -right-16 top-[10%] w-[350px] h-[350px] lg:w-[450px] lg:h-[450px] pointer-events-none animate-drift">
             <svg viewBox="0 0 200 200" className="w-full h-full" aria-hidden="true">
-              {Array.from({ length: 100 }).map((_, i) => (
+              {Array.from({ length: 16 }).map((_, i) => (
                 <circle
                   key={i}
-                  cx={(i % 10) * 20 + 10}
-                  cy={Math.floor(i / 10) * 20 + 10}
-                  r="2.5"
-                  fill="hsl(210 93% 12% / 0.10)"
+                  cx={(i % 4) * 50 + 25}
+                  cy={Math.floor(i / 4) * 50 + 25}
+                  r="10"
+                  fill="hsl(210 93% 12% / 0.12)"
                 />
               ))}
             </svg>
