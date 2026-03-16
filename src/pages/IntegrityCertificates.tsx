@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import icLogo from '@/assets/ic-logo.png';
+import icLogo from '@/assets/ic-logo-ivory.png';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FadeInSection from '@/components/FadeInSection';
