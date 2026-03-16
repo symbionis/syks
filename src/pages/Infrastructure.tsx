@@ -228,11 +228,10 @@ const Infrastructure = () => {
           ref={(el) => { sectionRefs.current['oracle'] = el; }}
           className="relative bg-canvas py-28 lg:py-40 overflow-hidden border-t border-foreground/[0.06]"
         >
-          {/* Lime arch bleeding off right */}
-          <div className="absolute -right-32 top-[10%] w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] pointer-events-none animate-drift">
-            <svg viewBox="0 0 400 400" className="w-full h-full" aria-hidden="true">
-              <path d="M400 200 A200 200 0 0 0 200 0 L200 60 A140 140 0 0 1 340 200 Z" fill="hsl(71 64% 63% / 0.12)" />
-              <path d="M400 200 A200 200 0 0 1 200 400 L200 340 A140 140 0 0 0 340 200 Z" fill="hsl(71 64% 63% / 0.08)" />
+          {/* Lime arch (inverted U) bleeding off right */}
+          <div className="absolute -right-32 top-[10%] w-[400px] h-[500px] lg:w-[500px] lg:h-[600px] pointer-events-none animate-drift">
+            <svg viewBox="0 0 200 260" className="w-full h-full" aria-hidden="true">
+              <path d="M20 260 L20 100 A80 80 0 0 1 180 100 L180 260" fill="none" stroke="hsl(71 64% 63% / 0.12)" strokeWidth="35" />
             </svg>
           </div>
 
