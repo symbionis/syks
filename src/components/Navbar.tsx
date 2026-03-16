@@ -18,11 +18,15 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
+    const darkHeroPages = ['/', '/ic', '/reech'];
+    const hasDarkHero = darkHeroPages.includes(location.pathname);
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      // On homepage, hero is ~100vh, so after that we're on light bg
-      if (location.pathname === '/') {
-        setIsOnDark(window.scrollY < window.innerHeight * 0.8);
+      if (hasDarkHero) {
+        // Hero height varies; use a reasonable threshold
+        const heroThreshold = location.pathname === '/' ? window.innerHeight * 0.8 : 400;
+        setIsOnDark(window.scrollY < heroThreshold);
       } else {
         setIsOnDark(false);
       }
