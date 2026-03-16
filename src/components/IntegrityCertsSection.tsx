@@ -33,7 +33,7 @@ const IntegrityCertsSection = () => {
         </FadeInSection>
 
         <FadeInSection delay={100}>
-          <p className="mt-6 text-foreground/60 max-w-2xl">
+          <p className="mt-6 text-foreground/70 max-w-2xl">
             Without verification, investor and regulator confidence fails. Integrity Certificates provides the technology backbone that ensures every financed initiative is recorded, independently validated, and deployed according to predefined criteria.
           </p>
         </FadeInSection>
@@ -43,14 +43,14 @@ const IntegrityCertsSection = () => {
             <FadeInSection key={card.title} delay={150 + i * 100}>
               <div className="bg-background border-l-4 border-accent p-6 lg:p-8 h-full">
                 <h3 className="font-medium text-foreground text-lg">{card.title}</h3>
-                <p className="mt-2 text-foreground/55 text-[15px] leading-relaxed">{card.description}</p>
+                <p className="mt-2 text-foreground/[0.82] text-[15px] leading-relaxed">{card.description}</p>
               </div>
             </FadeInSection>
           ))}
         </div>
 
         <FadeInSection delay={600}>
-          <p className="mt-14 font-serif italic text-foreground/50 text-center max-w-2xl mx-auto">
+          <p className="mt-14 font-serif italic text-foreground/70 text-center max-w-2xl mx-auto">
             Integrity Certificates transforms climate impact into financial-grade evidence — not by assertion, but by proof.
           </p>
           <div className="mt-6 text-center">

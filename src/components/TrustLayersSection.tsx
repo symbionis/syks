@@ -69,7 +69,7 @@ const TrustLayersSection = () => {
           <h2 className="text-section text-foreground text-center">Four layers of trust</h2>
         </FadeInSection>
         <FadeInSection delay={100}>
-          <p className="mt-6 text-center text-foreground/60 max-w-2xl mx-auto">
+          <p className="mt-6 text-center text-foreground/70 max-w-2xl mx-auto">
             From raw data to trusted assets — our infrastructure stack ensures integrity at every stage of the journey from real-world measurement to investable digital outcome.
           </p>
         </FadeInSection>
@@ -81,9 +81,9 @@ const TrustLayersSection = () => {
                 <div className="flex-shrink-0 mt-1">{layer.shape}</div>
                 <div>
                   <h3 className="text-lg font-medium text-foreground">
-                    {layer.name} <span className="text-foreground/50">· {layer.descriptor}</span>
+                    {layer.name} <span className="text-foreground/60">· {layer.descriptor}</span>
                   </h3>
-                  <p className="mt-2 text-foreground/60 text-[15px] leading-relaxed">{layer.description}</p>
+                  <p className="mt-2 text-foreground/[0.82] text-[15px] leading-relaxed">{layer.description}</p>
                 </div>
               </div>
             </FadeInSection>
@@ -91,7 +91,7 @@ const TrustLayersSection = () => {
         </div>
 
         <FadeInSection delay={600}>
-          <p className="mt-12 text-center text-foreground/40 text-sm">
+          <p className="mt-12 text-center text-foreground/50 text-sm">
             Built on distributed ledger technology for transparency and immutability at every layer.
           </p>
           <div className="mt-6 text-center">

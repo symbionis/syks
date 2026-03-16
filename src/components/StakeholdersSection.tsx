@@ -38,7 +38,7 @@ const StakeholdersSection = () => {
             <FadeInSection key={s.name} delay={100 + i * 100}>
               <div className="bg-secondary p-7 lg:p-8 h-full rounded-sm">
                 <h3 className="font-medium text-foreground text-lg">{s.name}</h3>
-                <p className="mt-3 text-foreground/55 text-[15px] leading-relaxed">{s.description}</p>
+                <p className="mt-3 text-foreground/[0.82] text-[15px] leading-relaxed">{s.description}</p>
               </div>
             </FadeInSection>
           ))}
