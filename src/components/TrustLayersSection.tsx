@@ -91,7 +91,7 @@ const TrustLayersSection = () => {
         </div>
 
         <FadeInSection delay={600}>
-          <p className="mt-12 text-center text-foreground/40 text-sm">
+          <p className="mt-12 text-center text-foreground/50 text-sm">
             Built on distributed ledger technology for transparency and immutability at every layer.
           </p>
           <div className="mt-6 text-center">

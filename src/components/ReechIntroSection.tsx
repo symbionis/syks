@@ -81,7 +81,7 @@ const ReechIntroSection = () => {
                 </div>
               </div>
 
-              <p className="mt-5 text-center text-foreground/40 text-xs italic font-serif">
+              <p className="mt-5 text-center text-foreground/50 text-xs italic font-serif">
                 A Real World Asset: compliant, bankable, auditable.
               </p>
             </div>
