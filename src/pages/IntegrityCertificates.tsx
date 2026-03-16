@@ -239,7 +239,7 @@ const IntegrityCertificates = () => {
             </FadeInSection>
 
             <FadeInSection delay={150}>
-              <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-0 items-stretch max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-0 items-stretch max-w-5xl mx-auto">
                 {/* Financial Ledger — solid dark navy */}
                 <div className="p-8 lg:p-10 rounded-l-sm" style={{ backgroundColor: '#021d39' }}>
                   <p className="text-xs uppercase tracking-widest text-ivory/40 mb-3">Ledger A</p>
