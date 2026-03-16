@@ -75,7 +75,7 @@ const ReechIntroSection = () => {
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-8 bg-lime rounded-full" />
                   <div>
-                    <p className="text-xs uppercase tracking-widest text-foreground/40 mb-0.5">Digital Impact Unit</p>
+                    <p className="text-xs uppercase tracking-widest text-foreground/50 mb-0.5">Digital Impact Unit</p>
                     <p className="font-medium text-foreground text-sm">DIU</p>
                   </div>
                 </div>
