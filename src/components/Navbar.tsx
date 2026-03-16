@@ -18,7 +18,7 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const darkHeroPages = ['/', '/ic', '/reech'];
+    const darkHeroPages = ['/', '/ic', '/reech', '/infrastructure'];
     const hasDarkHero = darkHeroPages.includes(location.pathname);
 
     const handleScroll = () => {
