@@ -318,8 +318,8 @@ const IntegrityCertificates = () => {
           </div>
         </section>
 
-        {/* ─── 7. INTEGRATION CTA ─── */}
-        <section id="integration" className="bg-background py-28 lg:py-36">
+        {/* ─── 7. INTEGRATION ─── */}
+        <section id="integration" className="bg-secondary py-28 lg:py-36">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <h2 className="text-section text-foreground text-center">
@@ -356,9 +356,14 @@ const IntegrityCertificates = () => {
                 The infrastructure is modular, proven, and built to scale.
               </p>
             </FadeInSection>
+          </div>
+        </section>
 
-            <FadeInSection delay={500}>
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+        {/* ─── 8. CTA ─── */}
+        <section className="bg-background py-20 lg:py-24">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <FadeInSection>
+              <div className="flex flex-wrap items-center justify-center gap-4">
                 <Link
                   to="/#contact"
                   className="px-7 py-3.5 bg-lime text-navy font-medium text-sm tracking-wide rounded-sm hover:brightness-110 transition-all duration-200"
@@ -374,8 +379,8 @@ const IntegrityCertificates = () => {
               </div>
             </FadeInSection>
 
-            <FadeInSection delay={600}>
-              <div className="mt-6 text-center">
+            <FadeInSection delay={100}>
+              <div className="mt-6">
                 <Link to="/" className="text-foreground/50 text-sm hover:text-foreground/70 transition-colors underline underline-offset-4">
                   A SYKS infrastructure solution
                 </Link>
