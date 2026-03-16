@@ -3,6 +3,16 @@ import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FadeInSection from '@/components/FadeInSection';
+import {
+  DataShape,
+  OracleShape,
+  IntegrityShape,
+  ConnectivityShape,
+  DataShapeBg,
+  OracleShapeBg,
+  IntegrityShapeBg,
+  ConnectivityShapeBg,
+} from '@/components/LayerShapes';
 
 const layers = [
   { id: 'data', label: 'Data', color: 'hsl(60 12% 85%)' },
@@ -60,50 +70,31 @@ const Infrastructure = () => {
               </FadeInSection>
             </div>
 
-            {/* Stack diagram — order matches page scroll: Data → Oracle → Integrity → Connectivity */}
+            {/* Stack diagram */}
             <FadeInSection delay={300}>
               <div className="mt-12 lg:mt-0 lg:flex-shrink-0 flex flex-col items-center gap-2 w-full lg:w-[280px]">
                 {[
                   {
                     label: 'Data',
-                    shape: (
-                      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                        <circle cx="10" cy="10" r="10" fill="hsl(60 12% 85%)" />
-                      </svg>
-                    ),
+                    shape: <DataShape size={20} />,
                     bg: 'hsl(60 12% 85% / 0.12)',
                     border: 'hsl(60 12% 85% / 0.25)',
                   },
                   {
                     label: 'Oracle',
-                    shape: (
-                      <svg width="20" height="26" viewBox="0 0 20 26" aria-hidden="true">
-                        <path d="M2 26 L2 10 A8 8 0 0 1 18 10 L18 26" fill="none" stroke="hsl(71 64% 63%)" strokeWidth="3.5" />
-                      </svg>
-                    ),
+                    shape: <OracleShape size={16} />,
                     bg: 'hsl(71 64% 63% / 0.15)',
                     border: 'hsl(71 64% 63% / 0.3)',
                   },
                   {
                     label: 'Integrity',
-                    shape: (
-                      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                        <rect width="20" height="20" rx="2" fill="hsl(216 67% 40%)" />
-                      </svg>
-                    ),
+                    shape: <IntegrityShape size={20} />,
                     bg: 'hsl(216 67% 40% / 0.2)',
                     border: 'hsl(216 67% 40% / 0.35)',
                   },
                   {
                     label: 'Connectivity',
-                    shape: (
-                      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                        <circle cx="5" cy="5" r="3.5" fill="hsl(60 12% 85%)" />
-                        <circle cx="15" cy="5" r="3.5" fill="hsl(60 12% 85%)" />
-                        <circle cx="5" cy="15" r="3.5" fill="hsl(60 12% 85%)" />
-                        <circle cx="15" cy="15" r="3.5" fill="hsl(60 12% 85%)" />
-                      </svg>
-                    ),
+                    shape: <ConnectivityShape size={20} color="hsl(60 12% 85%)" />,
                     bg: 'hsl(60 12% 85% / 0.10)',
                     border: 'hsl(60 12% 85% / 0.20)',
                   },
@@ -162,17 +153,13 @@ const Infrastructure = () => {
         >
           {/* Ivory circle bleeding off left */}
           <div className="absolute -left-40 top-[15%] w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] pointer-events-none animate-drift-reverse">
-            <svg viewBox="0 0 500 500" className="w-full h-full" aria-hidden="true">
-              <circle cx="250" cy="250" r="240" fill="hsl(60 12% 85% / 0.12)" />
-            </svg>
+            <DataShapeBg className="w-full h-full" />
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="flex items-center gap-3 mb-4">
-                <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
-                  <circle cx="9" cy="9" r="9" fill="hsl(60 12% 85%)" />
-                </svg>
+                <DataShape size={18} />
                 <span className="text-xs font-medium tracking-widest uppercase text-foreground/50">Layer 1</span>
               </div>
               <h2 className="text-section text-foreground">Data · The source of truth</h2>
@@ -228,19 +215,15 @@ const Infrastructure = () => {
           ref={(el) => { sectionRefs.current['oracle'] = el; }}
           className="relative bg-canvas py-28 lg:py-40 overflow-hidden border-t border-foreground/[0.06]"
         >
-          {/* Lime arch (inverted U) bleeding off right */}
+          {/* Lime arch bleeding off right */}
           <div className="absolute -right-32 top-[10%] w-[400px] h-[500px] lg:w-[500px] lg:h-[600px] pointer-events-none animate-drift">
-            <svg viewBox="0 0 200 260" className="w-full h-full" aria-hidden="true">
-              <path d="M20 260 L20 100 A80 80 0 0 1 180 100 L180 260" fill="none" stroke="hsl(71 64% 63% / 0.12)" strokeWidth="35" />
-            </svg>
+            <OracleShapeBg className="w-full h-full" />
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="flex items-center gap-3 mb-4">
-              <svg width="18" height="24" viewBox="0 0 18 24" aria-hidden="true">
-                  <path d="M2 24 L2 9 A7 7 0 0 1 16 9 L16 24" fill="none" stroke="hsl(71 64% 63%)" strokeWidth="3" />
-                </svg>
+                <OracleShape size={16} />
                 <span className="text-xs font-medium tracking-widest uppercase text-foreground/50">Layer 2</span>
               </div>
               <h2 className="text-section text-foreground">Oracle · The real-world interface</h2>
@@ -298,17 +281,13 @@ const Infrastructure = () => {
         >
           {/* Blue square bleeding off left */}
           <div className="absolute -left-24 top-[12%] w-[350px] h-[350px] lg:w-[450px] lg:h-[450px] pointer-events-none animate-drift-reverse">
-            <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden="true">
-              <rect width="100" height="100" rx="3" fill="hsl(216 67% 40% / 0.10)" />
-            </svg>
+            <IntegrityShapeBg className="w-full h-full" />
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="flex items-center gap-3 mb-4">
-                <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
-                  <rect width="18" height="18" rx="2" fill="hsl(216 67% 40%)" />
-                </svg>
+                <IntegrityShape size={18} />
                 <span className="text-xs font-medium tracking-widest uppercase text-foreground/50">Layer 3</span>
               </div>
               <h2 className="text-section text-foreground">Integrity · The trust layer</h2>
@@ -375,30 +354,15 @@ const Infrastructure = () => {
           ref={(el) => { sectionRefs.current['connectivity'] = el; }}
           className="relative bg-canvas py-28 lg:py-40 overflow-hidden border-t border-foreground/[0.06]"
         >
-          {/* Navy dot grid (4×4 large scale) bleeding off right */}
+          {/* Dot grid bleeding off right */}
           <div className="absolute -right-16 top-[10%] w-[350px] h-[350px] lg:w-[450px] lg:h-[450px] pointer-events-none animate-drift">
-            <svg viewBox="0 0 200 200" className="w-full h-full" aria-hidden="true">
-              {Array.from({ length: 16 }).map((_, i) => (
-                <circle
-                  key={i}
-                  cx={(i % 4) * 50 + 25}
-                  cy={Math.floor(i / 4) * 50 + 25}
-                  r="10"
-                  fill="hsl(210 93% 12% / 0.12)"
-                />
-              ))}
-            </svg>
+            <ConnectivityShapeBg className="w-full h-full" />
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="flex items-center gap-3 mb-4">
-              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                  <circle cx="5" cy="5" r="3.5" fill="hsl(210 93% 12%)" />
-                  <circle cx="15" cy="5" r="3.5" fill="hsl(210 93% 12%)" />
-                  <circle cx="5" cy="15" r="3.5" fill="hsl(210 93% 12%)" />
-                  <circle cx="15" cy="15" r="3.5" fill="hsl(210 93% 12%)" />
-                </svg>
+                <ConnectivityShape size={20} />
                 <span className="text-xs font-medium tracking-widest uppercase text-foreground/50">Layer 4</span>
               </div>
               <h2 className="text-section text-foreground">Connectivity · The glue</h2>
