@@ -69,7 +69,7 @@ const TrustLayersSection = () => {
           <h2 className="text-section text-foreground text-center">Four layers of trust</h2>
         </FadeInSection>
         <FadeInSection delay={100}>
-          <p className="mt-6 text-center text-foreground/60 max-w-2xl mx-auto">
+          <p className="mt-6 text-center text-foreground/70 max-w-2xl mx-auto">
             From raw data to trusted assets — our infrastructure stack ensures integrity at every stage of the journey from real-world measurement to investable digital outcome.
           </p>
         </FadeInSection>
