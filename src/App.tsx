@@ -9,6 +9,7 @@ import Reech from "./pages/Reech.tsx";
 import IntegrityCertificates from "./pages/IntegrityCertificates.tsx";
 import Infrastructure from "./pages/Infrastructure.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
+import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
