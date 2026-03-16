@@ -33,7 +33,7 @@ const IntegrityCertsSection = () => {
         </FadeInSection>
 
         <FadeInSection delay={100}>
-          <p className="mt-6 text-foreground/60 max-w-2xl">
+          <p className="mt-6 text-foreground/70 max-w-2xl">
             Without verification, investor and regulator confidence fails. Integrity Certificates provides the technology backbone that ensures every financed initiative is recorded, independently validated, and deployed according to predefined criteria.
           </p>
         </FadeInSection>
