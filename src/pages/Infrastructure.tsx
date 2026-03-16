@@ -60,24 +60,29 @@ const Infrastructure = () => {
               </FadeInSection>
             </div>
 
-            {/* Stack diagram */}
+            {/* Stack diagram — order matches page scroll: Data → Oracle → Integrity → Connectivity */}
             <FadeInSection delay={300}>
               <div className="mt-12 lg:mt-0 lg:flex-shrink-0 flex flex-col items-center gap-2 w-full lg:w-[280px]">
                 {[
                   {
-                    label: 'Connectivity',
+                    label: 'Data',
                     shape: (
-                      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
-                        {[0, 8, 16, 24].map(x =>
-                          [0, 8, 16, 24].map(y => (
-                            <circle key={`${x}-${y}`} cx={x + 2} cy={y + 2} r="2" fill="hsl(210 93% 12%)" />
-                          ))
-                        )}
+                      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                        <circle cx="10" cy="10" r="10" fill="hsl(60 12% 85%)" />
                       </svg>
                     ),
-                    bg: 'hsl(210 93% 12% / 0.25)',
-                    border: 'hsl(210 93% 12% / 0.4)',
-                    textColor: 'text-ivory/70',
+                    bg: 'hsl(60 12% 85% / 0.12)',
+                    border: 'hsl(60 12% 85% / 0.25)',
+                  },
+                  {
+                    label: 'Oracle',
+                    shape: (
+                      <svg width="20" height="26" viewBox="0 0 20 26" aria-hidden="true">
+                        <path d="M2 26 L2 10 A8 8 0 0 1 18 10 L18 26" fill="none" stroke="hsl(71 64% 63%)" strokeWidth="3.5" />
+                      </svg>
+                    ),
+                    bg: 'hsl(71 64% 63% / 0.15)',
+                    border: 'hsl(71 64% 63% / 0.3)',
                   },
                   {
                     label: 'Integrity',
@@ -88,38 +93,28 @@ const Infrastructure = () => {
                     ),
                     bg: 'hsl(216 67% 40% / 0.2)',
                     border: 'hsl(216 67% 40% / 0.35)',
-                    textColor: 'text-ivory/70',
                   },
                   {
-                    label: 'Oracle',
-                    shape: (
-                      <svg width="24" height="16" viewBox="0 0 24 16" aria-hidden="true">
-                        <path d="M0 16 A12 12 0 0 1 24 16" fill="hsl(71 64% 63%)" />
-                      </svg>
-                    ),
-                    bg: 'hsl(71 64% 63% / 0.15)',
-                    border: 'hsl(71 64% 63% / 0.3)',
-                    textColor: 'text-ivory/70',
-                  },
-                  {
-                    label: 'Data',
+                    label: 'Connectivity',
                     shape: (
                       <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                        <circle cx="10" cy="10" r="10" fill="hsl(60 12% 85%)" />
+                        <circle cx="5" cy="5" r="3.5" fill="hsl(60 12% 85%)" />
+                        <circle cx="15" cy="5" r="3.5" fill="hsl(60 12% 85%)" />
+                        <circle cx="5" cy="15" r="3.5" fill="hsl(60 12% 85%)" />
+                        <circle cx="15" cy="15" r="3.5" fill="hsl(60 12% 85%)" />
                       </svg>
                     ),
-                    bg: 'hsl(60 12% 85% / 0.12)',
-                    border: 'hsl(60 12% 85% / 0.25)',
-                    textColor: 'text-ivory/70',
+                    bg: 'hsl(60 12% 85% / 0.10)',
+                    border: 'hsl(60 12% 85% / 0.20)',
                   },
-                ].map((layer, i) => (
+                ].map((layer) => (
                   <div
                     key={layer.label}
                     className="w-full flex items-center gap-4 px-5 py-4 rounded-sm"
                     style={{ backgroundColor: layer.bg, border: `1px solid ${layer.border}` }}
                   >
                     {layer.shape}
-                    <span className={`text-sm font-medium tracking-wide ${layer.textColor}`}>{layer.label}</span>
+                    <span className="text-sm font-medium tracking-wide text-ivory/70">{layer.label}</span>
                   </div>
                 ))}
               </div>
@@ -233,19 +228,18 @@ const Infrastructure = () => {
           ref={(el) => { sectionRefs.current['oracle'] = el; }}
           className="relative bg-canvas py-28 lg:py-40 overflow-hidden border-t border-foreground/[0.06]"
         >
-          {/* Lime arch bleeding off right */}
-          <div className="absolute -right-32 top-[10%] w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] pointer-events-none animate-drift">
-            <svg viewBox="0 0 400 400" className="w-full h-full" aria-hidden="true">
-              <path d="M400 200 A200 200 0 0 0 200 0 L200 60 A140 140 0 0 1 340 200 Z" fill="hsl(71 64% 63% / 0.12)" />
-              <path d="M400 200 A200 200 0 0 1 200 400 L200 340 A140 140 0 0 0 340 200 Z" fill="hsl(71 64% 63% / 0.08)" />
+          {/* Lime arch (inverted U) bleeding off right */}
+          <div className="absolute -right-32 top-[10%] w-[400px] h-[500px] lg:w-[500px] lg:h-[600px] pointer-events-none animate-drift">
+            <svg viewBox="0 0 200 260" className="w-full h-full" aria-hidden="true">
+              <path d="M20 260 L20 100 A80 80 0 0 1 180 100 L180 260" fill="none" stroke="hsl(71 64% 63% / 0.12)" strokeWidth="35" />
             </svg>
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="flex items-center gap-3 mb-4">
-                <svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true">
-                  <path d="M0 14 A11 11 0 0 1 22 14" fill="hsl(71 64% 63%)" />
+              <svg width="18" height="24" viewBox="0 0 18 24" aria-hidden="true">
+                  <path d="M2 24 L2 9 A7 7 0 0 1 16 9 L16 24" fill="none" stroke="hsl(71 64% 63%)" strokeWidth="3" />
                 </svg>
                 <span className="text-xs font-medium tracking-widest uppercase text-foreground/50">Layer 2</span>
               </div>
@@ -381,16 +375,16 @@ const Infrastructure = () => {
           ref={(el) => { sectionRefs.current['connectivity'] = el; }}
           className="relative bg-canvas py-28 lg:py-40 overflow-hidden border-t border-foreground/[0.06]"
         >
-          {/* Navy dot grid bleeding off right */}
+          {/* Navy dot grid (4×4 large scale) bleeding off right */}
           <div className="absolute -right-16 top-[10%] w-[350px] h-[350px] lg:w-[450px] lg:h-[450px] pointer-events-none animate-drift">
             <svg viewBox="0 0 200 200" className="w-full h-full" aria-hidden="true">
-              {Array.from({ length: 100 }).map((_, i) => (
+              {Array.from({ length: 16 }).map((_, i) => (
                 <circle
                   key={i}
-                  cx={(i % 10) * 20 + 10}
-                  cy={Math.floor(i / 10) * 20 + 10}
-                  r="2.5"
-                  fill="hsl(210 93% 12% / 0.10)"
+                  cx={(i % 4) * 50 + 25}
+                  cy={Math.floor(i / 4) * 50 + 25}
+                  r="10"
+                  fill="hsl(210 93% 12% / 0.12)"
                 />
               ))}
             </svg>
@@ -399,12 +393,11 @@ const Infrastructure = () => {
           <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="flex items-center gap-3 mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-                  {[0, 8, 16].map(x =>
-                    [0, 8, 16].map(y => (
-                      <circle key={`${x}-${y}`} cx={x + 4} cy={y + 4} r="3" fill="hsl(210 93% 12%)" />
-                    ))
-                  )}
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                  <circle cx="5" cy="5" r="3.5" fill="hsl(210 93% 12%)" />
+                  <circle cx="15" cy="5" r="3.5" fill="hsl(210 93% 12%)" />
+                  <circle cx="5" cy="15" r="3.5" fill="hsl(210 93% 12%)" />
+                  <circle cx="15" cy="15" r="3.5" fill="hsl(210 93% 12%)" />
                 </svg>
                 <span className="text-xs font-medium tracking-widest uppercase text-foreground/50">Layer 4</span>
               </div>
@@ -465,7 +458,7 @@ const Infrastructure = () => {
         </section>
 
         {/* ─── CTA ─── */}
-        <section className="bg-background py-20 lg:py-24">
+        <section className="bg-secondary py-20 lg:py-24">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <FadeInSection>
               <p className="text-foreground/[0.82] text-body leading-relaxed max-w-2xl mx-auto">
