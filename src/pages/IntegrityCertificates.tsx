@@ -31,7 +31,6 @@ const IntegrityCertificates = () => {
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
             <FadeInSection>
-              {/* IC logo mark */}
               <img src={icLogo} alt="Integrity Certificates logo" className="w-16 h-16 mb-8" />
             </FadeInSection>
 
@@ -77,7 +76,7 @@ const IntegrityCertificates = () => {
               </div>
             </FadeInSection>
 
-            {/* IVE Diagram */}
+            {/* IVE Diagram — solid blue blocks */}
             <FadeInSection delay={200}>
               <div className="mt-16 max-w-2xl mx-auto">
                 <svg viewBox="0 0 600 320" className="w-full" aria-label="IVE system diagram">
@@ -85,23 +84,23 @@ const IntegrityCertificates = () => {
                   <rect x="50" y="20" width="500" height="280" rx="4" fill="none" stroke="hsl(216 67% 40% / 0.2)" strokeWidth="1.5" strokeDasharray="6 4" />
                   <text x="300" y="52" textAnchor="middle" fill="hsl(216 67% 40%)" fontSize="11" fontWeight="500" letterSpacing="0.12em" fontFamily="Instrument Sans, sans-serif">INCENTIVE VALUE ENGINE</text>
 
-                  {/* PoE module */}
-                  <rect x="90" y="90" width="190" height="120" rx="3" fill="hsl(216 67% 40% / 0.08)" stroke="hsl(216 67% 40% / 0.3)" strokeWidth="1.5" />
-                  <text x="185" y="130" textAnchor="middle" fill="hsl(210 93% 12%)" fontSize="13" fontWeight="500" fontFamily="Instrument Sans, sans-serif">Proof of Execution</text>
-                  <text x="185" y="152" textAnchor="middle" fill="hsl(210 93% 12% / 0.6)" fontSize="11" fontFamily="Instrument Sans, sans-serif">Monitoring</text>
-                  <text x="185" y="170" textAnchor="middle" fill="hsl(210 93% 12% / 0.6)" fontSize="11" fontFamily="Instrument Sans, sans-serif">Validation</text>
-                  <text x="185" y="188" textAnchor="middle" fill="hsl(210 93% 12% / 0.6)" fontSize="11" fontFamily="Instrument Sans, sans-serif">Governance</text>
+                  {/* PoE module — solid blue */}
+                  <rect x="90" y="90" width="190" height="120" rx="3" fill="hsl(216 67% 40%)" />
+                  <text x="185" y="130" textAnchor="middle" fill="white" fontSize="13" fontWeight="500" fontFamily="Instrument Sans, sans-serif">Proof of Execution</text>
+                  <text x="185" y="152" textAnchor="middle" fill="white" opacity="0.7" fontSize="11" fontFamily="Instrument Sans, sans-serif">Monitoring</text>
+                  <text x="185" y="170" textAnchor="middle" fill="white" opacity="0.7" fontSize="11" fontFamily="Instrument Sans, sans-serif">Validation</text>
+                  <text x="185" y="188" textAnchor="middle" fill="white" opacity="0.7" fontSize="11" fontFamily="Instrument Sans, sans-serif">Governance</text>
 
                   {/* Arrow */}
                   <line x1="290" y1="150" x2="310" y2="150" stroke="hsl(216 67% 40% / 0.5)" strokeWidth="1.5" />
                   <polygon points="315,145 325,150 315,155" fill="hsl(216 67% 40% / 0.5)" />
 
-                  {/* Accumulator module */}
-                  <rect x="330" y="90" width="190" height="120" rx="3" fill="hsl(216 67% 40% / 0.08)" stroke="hsl(216 67% 40% / 0.3)" strokeWidth="1.5" />
-                  <text x="425" y="130" textAnchor="middle" fill="hsl(210 93% 12%)" fontSize="13" fontWeight="500" fontFamily="Instrument Sans, sans-serif">Accumulator</text>
-                  <text x="425" y="152" textAnchor="middle" fill="hsl(210 93% 12% / 0.6)" fontSize="11" fontFamily="Instrument Sans, sans-serif">Commitment</text>
-                  <text x="425" y="170" textAnchor="middle" fill="hsl(210 93% 12% / 0.6)" fontSize="11" fontFamily="Instrument Sans, sans-serif">Conversion</text>
-                  <text x="425" y="188" textAnchor="middle" fill="hsl(210 93% 12% / 0.6)" fontSize="11" fontFamily="Instrument Sans, sans-serif">Value capture</text>
+                  {/* Accumulator module — solid blue */}
+                  <rect x="330" y="90" width="190" height="120" rx="3" fill="hsl(216 67% 40%)" />
+                  <text x="425" y="130" textAnchor="middle" fill="white" fontSize="13" fontWeight="500" fontFamily="Instrument Sans, sans-serif">Accumulator</text>
+                  <text x="425" y="152" textAnchor="middle" fill="white" opacity="0.7" fontSize="11" fontFamily="Instrument Sans, sans-serif">Commitment</text>
+                  <text x="425" y="170" textAnchor="middle" fill="white" opacity="0.7" fontSize="11" fontFamily="Instrument Sans, sans-serif">Conversion</text>
+                  <text x="425" y="188" textAnchor="middle" fill="white" opacity="0.7" fontSize="11" fontFamily="Instrument Sans, sans-serif">Value capture</text>
 
                   {/* Output arrow */}
                   <line x1="425" y1="220" x2="425" y2="255" stroke="hsl(216 67% 40% / 0.5)" strokeWidth="1.5" />
@@ -146,7 +145,7 @@ const IntegrityCertificates = () => {
                     { label: 'Monitoring', desc: 'Continuous data collection against predefined emission reduction benchmarks' },
                     { label: 'Validation', desc: 'Independent verification through accredited third-party bodies' },
                     { label: 'Governance', desc: 'Structured validator selection, rotation, and accountability protocols' },
-                  ].map((item, i) => (
+                  ].map((item) => (
                     <div key={item.label} className="flex gap-4 items-start p-5 bg-canvas rounded-sm">
                       <div className="w-1 h-10 bg-brand-blue rounded-full flex-shrink-0 mt-0.5" />
                       <div>
@@ -170,28 +169,28 @@ const IntegrityCertificates = () => {
               <div className="mt-2 w-12 h-1 bg-brand-blue rounded-full" />
             </FadeInSection>
 
-            {/* Timeline steps */}
+            {/* Timeline steps — exact copy */}
             <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
               {[
                 {
                   step: '01',
                   title: 'Commitment Issuance',
-                  desc: 'A corporate entity commits to a verified emission reduction target. The commitment is formalised as a structured contract with predefined milestones and verification triggers.',
+                  desc: 'Following assessment of maturity, risk, and quality, the fund issues commitment units representing the initiative\u2019s lifetime obligation. These are deposited into the accumulator in exchange for funding.',
                 },
                 {
                   step: '02',
-                  title: 'Verification & Conversion',
-                  desc: 'As milestones are met and independently verified through PoE, commitments are converted into Digital Impact Units (DIUs) — the verified, tradeable output of the system.',
+                  title: 'Verification and Conversion',
+                  desc: 'As the initiative operates, PoE verifies delivery. For each verified outcome, a verified impact unit is deposited and the corresponding commitment is retired. Obligations reduce progressively; the ledger of delivered impact grows.',
                 },
                 {
                   step: '03',
                   title: 'Repayment Mechanics',
-                  desc: 'The accumulator structure manages the financial flows between commitment and delivery, creating an incentive-aligned framework that rewards verified performance.',
+                  desc: 'Operators deposit periodic payments enabling buyback of verified impact units at a dynamic price reflecting the financing structure. Capital recovery is embedded directly in the impact ledger.',
                 },
                 {
                   step: '04',
                   title: 'Fund Value Capture',
-                  desc: 'Verified DIUs accrue value within the fund structure, creating a growing pool of certified climate impact that can be traded, reported, or retired.',
+                  desc: 'The fund sweeps both financial returns and remaining verified impact units. Units not bought back remain with the fund for reporting, retirement, or monetisation. Value flows each period \u2014 either in financial returns or verified impact.',
                 },
               ].map((item, i) => (
                 <FadeInSection key={item.step} delay={i * 100}>
@@ -241,8 +240,8 @@ const IntegrityCertificates = () => {
 
             <FadeInSection delay={150}>
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-0 items-stretch max-w-4xl mx-auto">
-                {/* Financial Ledger */}
-                <div className="bg-navy p-8 lg:p-10 rounded-l-sm">
+                {/* Financial Ledger — solid dark navy */}
+                <div className="p-8 lg:p-10 rounded-l-sm" style={{ backgroundColor: '#021d39' }}>
                   <p className="text-xs uppercase tracking-widest text-ivory/40 mb-3">Ledger A</p>
                   <h3 className="text-ivory font-medium text-xl mb-4">Financial Ledger</h3>
                   <ul className="space-y-3 text-ivory/60 text-sm">
@@ -253,28 +252,28 @@ const IntegrityCertificates = () => {
                   </ul>
                 </div>
 
-                {/* Sync connector */}
-                <div className="flex items-center justify-center bg-navy lg:bg-transparent px-6 py-4 lg:py-0">
+                {/* Sync connector — lime circle */}
+                <div className="flex items-center justify-center px-6 py-4 lg:py-0" style={{ backgroundColor: '#021d39' }}>
                   <div className="flex flex-col items-center gap-2">
-                    <div className="w-px h-8 lg:h-16 bg-brand-blue/40" />
-                    <div className="w-8 h-8 rounded-full border-2 border-brand-blue flex items-center justify-center">
-                      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-                        <path d="M3 7h8M7 3v8" stroke="hsl(216 67% 40%)" strokeWidth="1.5" strokeLinecap="round" />
+                    <div className="w-px h-8 lg:h-16 bg-lime/40" />
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: '#d0df61' }}>
+                      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M3 8h10M8 3v10" stroke="#021d39" strokeWidth="2" strokeLinecap="round" />
                       </svg>
                     </div>
-                    <div className="w-px h-8 lg:h-16 bg-brand-blue/40" />
+                    <div className="w-px h-8 lg:h-16 bg-lime/40" />
                   </div>
                 </div>
 
-                {/* Impact Ledger */}
-                <div className="bg-brand-blue p-8 lg:p-10 rounded-r-sm">
-                  <p className="text-xs uppercase tracking-widest text-ivory/40 mb-3">Ledger B</p>
-                  <h3 className="text-ivory font-medium text-xl mb-4">Impact Ledger</h3>
-                  <ul className="space-y-3 text-ivory/70 text-sm">
-                    <li className="flex items-start gap-2"><span className="text-ivory/40 mt-0.5">—</span> Emission reductions</li>
-                    <li className="flex items-start gap-2"><span className="text-ivory/40 mt-0.5">—</span> Verification records</li>
-                    <li className="flex items-start gap-2"><span className="text-ivory/40 mt-0.5">—</span> DIU issuance</li>
-                    <li className="flex items-start gap-2"><span className="text-ivory/40 mt-0.5">—</span> Audit trails</li>
+                {/* Impact Ledger — solid blue */}
+                <div className="p-8 lg:p-10 rounded-r-sm" style={{ backgroundColor: '#2158a8' }}>
+                  <p className="text-xs uppercase tracking-widest text-white/50 mb-3">Ledger B</p>
+                  <h3 className="text-white font-medium text-xl mb-4">Impact Ledger</h3>
+                  <ul className="space-y-3 text-white/70 text-sm">
+                    <li className="flex items-start gap-2"><span className="text-white/40 mt-0.5">—</span> Emission reductions</li>
+                    <li className="flex items-start gap-2"><span className="text-white/40 mt-0.5">—</span> Verification records</li>
+                    <li className="flex items-start gap-2"><span className="text-white/40 mt-0.5">—</span> DIU issuance</li>
+                    <li className="flex items-start gap-2"><span className="text-white/40 mt-0.5">—</span> Audit trails</li>
                   </ul>
                 </div>
               </div>
@@ -291,27 +290,30 @@ const IntegrityCertificates = () => {
         {/* ─── 6. REGISTRY & TRADING ─── */}
         <section className="bg-canvas py-28 lg:py-36">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-              <div>
-                <FadeInSection>
-                  <span className="text-xs font-medium tracking-widest uppercase text-brand-blue">Post-Verification</span>
-                  <h2 className="mt-4 text-section text-foreground">Registry & Trading Infrastructure</h2>
-                  <div className="mt-2 w-12 h-1 bg-brand-blue rounded-full" />
-                </FadeInSection>
+            <div className="max-w-3xl">
+              <FadeInSection>
+                <span className="text-xs font-medium tracking-widest uppercase text-brand-blue">Post-Verification</span>
+                <h2 className="mt-4 text-section text-foreground">Registry & Trading Infrastructure</h2>
+                <div className="mt-2 w-12 h-1 bg-brand-blue rounded-full" />
+              </FadeInSection>
 
-                <FadeInSection delay={100}>
-                  <p className="mt-8 text-foreground/[0.82] text-body leading-relaxed">
-                    Once a Digital Impact Unit is verified and issued, it enters the registry — a structured, immutable record that tracks ownership, transfer, and retirement of every climate asset produced by the system.
-                  </p>
-                </FadeInSection>
+              <FadeInSection delay={100}>
+                <p className="mt-8 text-foreground/[0.82] text-body leading-relaxed">
+                  Once outcomes are verified and impact units issued, they enter the IC registry — an immutable, transparent record providing complete traceability from data capture through validation to issuance.
+                </p>
+              </FadeInSection>
 
-                <FadeInSection delay={200}>
-                  <p className="mt-5 text-foreground/[0.82] text-body leading-relaxed">
-                    The trading infrastructure enables secondary market liquidity while maintaining full chain-of-custody transparency. Every transfer is recorded, every retirement is permanent, and every asset can be traced back to its originating commitment and verification event.
-                  </p>
-                </FadeInSection>
-              </div>
+              <FadeInSection delay={200}>
+                <p className="mt-5 text-foreground/[0.82] text-body leading-relaxed">
+                  Every unit carries its full provenance: the initiative it originated from, the monitoring data that supported it, the validators who confirmed it, and the consensus that approved it.
+                </p>
+              </FadeInSection>
 
+              <FadeInSection delay={300}>
+                <p className="mt-5 text-foreground/[0.82] text-body leading-relaxed">
+                  Verified units can be held for claims and reporting, retired for offset purposes, or traded through compliant digital trading environments. The trading infrastructure accommodates different market needs while ensuring rapid execution and settlement.
+                </p>
+              </FadeInSection>
             </div>
           </div>
         </section>
@@ -329,15 +331,15 @@ const IntegrityCertificates = () => {
               {[
                 {
                   title: 'Certification Bodies',
-                  desc: 'Integrate verification protocols directly into existing accreditation and certification workflows.',
+                  desc: 'Integrate the IVE to elevate issuance integrity — adding standardised monitoring, collective validation, and immutable traceability without building the technology.',
                 },
                 {
                   title: 'Fund Managers',
-                  desc: 'Embed verified climate impact into fund structures with full auditability and regulatory alignment.',
+                  desc: 'Deploy accumulator contracts and PoE across portfolios to embed verification directly into capital allocation and risk management.',
                 },
                 {
                   title: 'Corporate Sustainability Teams',
-                  desc: 'Connect decarbonisation commitments to verifiable, investable outcomes — turning reporting into action.',
+                  desc: 'Interface with the registry and reporting layer to strengthen disclosure with verified, auditable evidence of climate delivery.',
                 },
               ].map((item, i) => (
                 <FadeInSection key={item.title} delay={i * 100}>
@@ -350,7 +352,7 @@ const IntegrityCertificates = () => {
             </div>
 
             <FadeInSection delay={400}>
-              <p className="mt-16 text-center font-serif italic text-foreground/70 text-lg">
+              <p className="mt-16 text-center text-foreground/[0.82] text-body leading-relaxed">
                 The infrastructure is modular, proven, and built to scale.
               </p>
             </FadeInSection>
@@ -365,9 +367,17 @@ const IntegrityCertificates = () => {
                 </Link>
                 <Link
                   to="/reech"
-                  className="px-7 py-3.5 border border-foreground/20 text-foreground font-medium text-sm tracking-wide rounded-sm hover:bg-foreground/5 transition-all duration-200"
+                  className="px-7 py-3.5 border border-navy text-navy font-medium text-sm tracking-wide rounded-sm hover:bg-navy/5 transition-all duration-200"
                 >
                   Explore REECH →
+                </Link>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={600}>
+              <div className="mt-6 text-center">
+                <Link to="/" className="text-foreground/50 text-sm hover:text-foreground/70 transition-colors underline underline-offset-4">
+                  A SYKS infrastructure solution
                 </Link>
               </div>
             </FadeInSection>
