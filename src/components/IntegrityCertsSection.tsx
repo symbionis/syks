@@ -43,7 +43,7 @@ const IntegrityCertsSection = () => {
             <FadeInSection key={card.title} delay={150 + i * 100}>
               <div className="bg-background border-l-4 border-accent p-6 lg:p-8 h-full">
                 <h3 className="font-medium text-foreground text-lg">{card.title}</h3>
-                <p className="mt-2 text-foreground/55 text-[15px] leading-relaxed">{card.description}</p>
+                <p className="mt-2 text-foreground/[0.82] text-[15px] leading-relaxed">{card.description}</p>
               </div>
             </FadeInSection>
           ))}
