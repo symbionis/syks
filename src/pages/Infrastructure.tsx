@@ -60,24 +60,29 @@ const Infrastructure = () => {
               </FadeInSection>
             </div>
 
-            {/* Stack diagram */}
+            {/* Stack diagram — order matches page scroll: Data → Oracle → Integrity → Connectivity */}
             <FadeInSection delay={300}>
               <div className="mt-12 lg:mt-0 lg:flex-shrink-0 flex flex-col items-center gap-2 w-full lg:w-[280px]">
                 {[
                   {
-                    label: 'Connectivity',
+                    label: 'Data',
                     shape: (
-                      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
-                        {[0, 8, 16, 24].map(x =>
-                          [0, 8, 16, 24].map(y => (
-                            <circle key={`${x}-${y}`} cx={x + 2} cy={y + 2} r="2" fill="hsl(210 93% 12%)" />
-                          ))
-                        )}
+                      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                        <circle cx="10" cy="10" r="10" fill="hsl(60 12% 85%)" />
                       </svg>
                     ),
-                    bg: 'hsl(210 93% 12% / 0.25)',
-                    border: 'hsl(210 93% 12% / 0.4)',
-                    textColor: 'text-ivory/70',
+                    bg: 'hsl(60 12% 85% / 0.12)',
+                    border: 'hsl(60 12% 85% / 0.25)',
+                  },
+                  {
+                    label: 'Oracle',
+                    shape: (
+                      <svg width="20" height="26" viewBox="0 0 20 26" aria-hidden="true">
+                        <path d="M2 26 L2 10 A8 8 0 0 1 18 10 L18 26" fill="none" stroke="hsl(71 64% 63%)" strokeWidth="3.5" />
+                      </svg>
+                    ),
+                    bg: 'hsl(71 64% 63% / 0.15)',
+                    border: 'hsl(71 64% 63% / 0.3)',
                   },
                   {
                     label: 'Integrity',
@@ -88,38 +93,28 @@ const Infrastructure = () => {
                     ),
                     bg: 'hsl(216 67% 40% / 0.2)',
                     border: 'hsl(216 67% 40% / 0.35)',
-                    textColor: 'text-ivory/70',
                   },
                   {
-                    label: 'Oracle',
-                    shape: (
-                      <svg width="24" height="16" viewBox="0 0 24 16" aria-hidden="true">
-                        <path d="M0 16 A12 12 0 0 1 24 16" fill="hsl(71 64% 63%)" />
-                      </svg>
-                    ),
-                    bg: 'hsl(71 64% 63% / 0.15)',
-                    border: 'hsl(71 64% 63% / 0.3)',
-                    textColor: 'text-ivory/70',
-                  },
-                  {
-                    label: 'Data',
+                    label: 'Connectivity',
                     shape: (
                       <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                        <circle cx="10" cy="10" r="10" fill="hsl(60 12% 85%)" />
+                        <circle cx="5" cy="5" r="3.5" fill="hsl(60 12% 85%)" />
+                        <circle cx="15" cy="5" r="3.5" fill="hsl(60 12% 85%)" />
+                        <circle cx="5" cy="15" r="3.5" fill="hsl(60 12% 85%)" />
+                        <circle cx="15" cy="15" r="3.5" fill="hsl(60 12% 85%)" />
                       </svg>
                     ),
-                    bg: 'hsl(60 12% 85% / 0.12)',
-                    border: 'hsl(60 12% 85% / 0.25)',
-                    textColor: 'text-ivory/70',
+                    bg: 'hsl(60 12% 85% / 0.10)',
+                    border: 'hsl(60 12% 85% / 0.20)',
                   },
-                ].map((layer, i) => (
+                ].map((layer) => (
                   <div
                     key={layer.label}
                     className="w-full flex items-center gap-4 px-5 py-4 rounded-sm"
                     style={{ backgroundColor: layer.bg, border: `1px solid ${layer.border}` }}
                   >
                     {layer.shape}
-                    <span className={`text-sm font-medium tracking-wide ${layer.textColor}`}>{layer.label}</span>
+                    <span className="text-sm font-medium tracking-wide text-ivory/70">{layer.label}</span>
                   </div>
                 ))}
               </div>
