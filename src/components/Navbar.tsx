@@ -8,7 +8,7 @@ const navLinks = [
   { label: 'Infrastructure', href: '/infrastructure' },
   { label: 'REECH', href: '/reech' },
   { label: 'Integrity Certificates', href: '/ic' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const Navbar = () => {

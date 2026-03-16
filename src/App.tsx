@@ -35,6 +35,7 @@ const App = () => (
           <Route path="/ic" element={<IntegrityCertificates />} />
           <Route path="/infrastructure" element={<Infrastructure />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
