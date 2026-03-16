@@ -316,21 +316,6 @@ const IntegrityCertificates = () => {
                 </FadeInSection>
               </div>
 
-              <FadeInSection delay={200}>
-                <div className="lg:mt-12 p-8 bg-navy rounded-sm">
-                  <div className="flex items-center gap-3 mb-6">
-                    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                      <path d="M3 3h14v14H3z" fill="none" stroke="hsl(216 67% 40%)" strokeWidth="1.5" rx="1" />
-                      <path d="M7 10l2 2 4-4" fill="none" stroke="hsl(var(--lime))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    <p className="text-ivory/50 text-xs uppercase tracking-widest">Trust Framework</p>
-                  </div>
-                  <p className="text-ivory font-medium text-lg mb-3">Swiss DLT Act Aligned</p>
-                  <p className="text-ivory/60 text-sm leading-relaxed">
-                    The registry infrastructure is designed in alignment with the Swiss Federal Act on the Adaptation of Federal Law to Developments in Distributed Ledger Technology (DLT Act) — providing a recognised legal framework for digital asset issuance and transfer.
-                  </p>
-                </div>
-              </FadeInSection>
             </div>
           </div>
         </section>
