@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import logoNavy from '@/assets/syks-logo-navy.png';
+import logoBlue from '@/assets/syks-logo-blue.png';
 import logoIvory from '@/assets/syks-logo-ivory.png';
 
 const navLinks = [
