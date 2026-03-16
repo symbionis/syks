@@ -325,10 +325,10 @@ const Reech = () => {
         </section>
 
         {/* ─── 7. FOOTER CTA ─── */}
-        <section className="py-24 lg:py-32" style={{ backgroundColor: '#021d39' }}>
+        <section className="bg-secondary py-24 lg:py-32">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <FadeInSection>
-              <p className="text-ivory/80 text-body leading-relaxed max-w-2xl mx-auto">
+              <p className="text-foreground/[0.82] text-body leading-relaxed max-w-2xl mx-auto">
                 REECH transforms the economics of climate action — bridging corporate ambition with institutional capital through verified, tradable digital assets.
               </p>
             </FadeInSection>
@@ -344,9 +344,17 @@ const Reech = () => {
                 </Link>
                 <Link
                   to="/ic"
-                  className="px-7 py-3.5 border border-ivory/40 text-ivory font-medium text-sm tracking-wide rounded-sm hover:bg-ivory/5 transition-all duration-200"
+                  className="px-7 py-3.5 border border-navy text-navy font-medium text-sm tracking-wide rounded-sm hover:bg-navy/5 transition-all duration-200"
                 >
                   Explore Integrity Certificates →
+                </Link>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={250}>
+              <div className="mt-6">
+                <Link to="/" className="text-foreground/50 text-sm hover:text-foreground/70 transition-colors underline underline-offset-4">
+                  A SYKS infrastructure solution
                 </Link>
               </div>
             </FadeInSection>
