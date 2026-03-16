@@ -336,7 +336,7 @@ const Reech = () => {
             <FadeInSection delay={150}>
               <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
                 <Link
-                  to="/#contact"
+                  to="/contact"
                   className="px-7 py-3.5 font-medium text-sm tracking-wide rounded-sm hover:brightness-110 transition-all duration-200"
                   style={{ backgroundColor: '#d0df61', color: '#021d39' }}
                 >

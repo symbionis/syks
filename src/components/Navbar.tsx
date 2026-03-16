@@ -8,7 +8,7 @@ const navLinks = [
   { label: 'Infrastructure', href: '/infrastructure' },
   { label: 'REECH', href: '/reech' },
   { label: 'Integrity Certificates', href: '/ic' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const darkHeroPages = ['/', '/ic', '/reech', '/infrastructure', '/privacy-policy'];
+    const darkHeroPages = ['/', '/ic', '/reech', '/infrastructure', '/privacy-policy', '/contact'];
     const hasDarkHero = darkHeroPages.includes(location.pathname);
 
     const handleScroll = () => {

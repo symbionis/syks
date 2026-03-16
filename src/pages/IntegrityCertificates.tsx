@@ -365,7 +365,7 @@ const IntegrityCertificates = () => {
             <FadeInSection>
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <Link
-                  to="/#contact"
+                  to="/contact"
                   className="px-7 py-3.5 bg-lime text-navy font-medium text-sm tracking-wide rounded-sm hover:brightness-110 transition-all duration-200"
                 >
                   Get in touch →
