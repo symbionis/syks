@@ -33,6 +33,7 @@ const App = () => (
           <Route path="/reech" element={<Reech />} />
           <Route path="/ic" element={<IntegrityCertificates />} />
           <Route path="/infrastructure" element={<Infrastructure />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
