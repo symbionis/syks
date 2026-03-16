@@ -94,9 +94,9 @@ const Infrastructure = () => {
                   },
                   {
                     label: 'Connectivity',
-                    shape: <ConnectivityShape size={20} color="hsl(60 12% 85%)" />,
-                    bg: 'hsl(60 12% 85% / 0.10)',
-                    border: 'hsl(60 12% 85% / 0.20)',
+                    shape: <ConnectivityShape size={20} />,
+                    bg: 'hsl(71 64% 63% / 0.12)',
+                    border: 'hsl(71 64% 63% / 0.25)',
                   },
                 ].map((layer) => (
                   <div

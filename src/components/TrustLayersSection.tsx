@@ -28,7 +28,7 @@ const layers = [
     descriptor: 'The trust layer',
     description:
       'Collective validation, peer-review verification, and immutable registry. This is where data becomes certified, credible claims — governed by transparent, decentralised processes under Swiss legal frameworks.',
-    shape: <IntegrityShape size={56} color="hsl(var(--blue))" />,
+    shape: <IntegrityShape size={56} />,
   },
   {
     name: 'Connectivity',
