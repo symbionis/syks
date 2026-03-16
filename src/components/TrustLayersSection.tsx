@@ -83,7 +83,7 @@ const TrustLayersSection = () => {
                   <h3 className="text-lg font-medium text-foreground">
                     {layer.name} <span className="text-foreground/60">· {layer.descriptor}</span>
                   </h3>
-                  <p className="mt-2 text-foreground/60 text-[15px] leading-relaxed">{layer.description}</p>
+                  <p className="mt-2 text-foreground/[0.82] text-[15px] leading-relaxed">{layer.description}</p>
                 </div>
               </div>
             </FadeInSection>

@@ -22,7 +22,7 @@ const ReechIntroSection = () => {
             </FadeInSection>
 
             <FadeInSection delay={200}>
-              <div className="mt-8 space-y-5 text-foreground/60 leading-relaxed text-[15px]">
+              <div className="mt-8 space-y-5 text-foreground/[0.82] leading-relaxed text-[15px]">
                 <p>
                   Corporate climate ambition has never been stronger. But the low-hanging fruit has been harvested. The next phase of decarbonisation — factory retooling, advanced carbon capture, regenerative agriculture, technology deployment — requires transformative capital at a scale that annual budgets and traditional financing cannot deliver.
                 </p>

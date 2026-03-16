@@ -50,7 +50,7 @@ const IntegrityCertsSection = () => {
         </div>
 
         <FadeInSection delay={600}>
-          <p className="mt-14 font-serif italic text-foreground/50 text-center max-w-2xl mx-auto">
+          <p className="mt-14 font-serif italic text-foreground/70 text-center max-w-2xl mx-auto">
             Integrity Certificates transforms climate impact into financial-grade evidence — not by assertion, but by proof.
           </p>
           <div className="mt-6 text-center">
