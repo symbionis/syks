@@ -253,7 +253,7 @@ const IntegrityCertificates = () => {
                 </div>
 
                 {/* Sync connector — lime circle */}
-                <div className="flex items-center justify-center px-6 py-4 lg:py-0" style={{ backgroundColor: '#021d39' }}>
+                <div className="flex items-center justify-center px-6 py-4 lg:py-0 bg-secondary">
                   <div className="flex flex-col items-center gap-2">
                     <div className="w-px h-8 lg:h-16 bg-lime/40" />
                     <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: '#d0df61' }}>
