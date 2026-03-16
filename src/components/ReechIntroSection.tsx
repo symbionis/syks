@@ -16,7 +16,7 @@ const ReechIntroSection = () => {
             </FadeInSection>
 
             <FadeInSection delay={100}>
-              <p className="mt-4 text-xl text-foreground/70 font-medium max-w-md">
+              <p className="mt-4 text-xl text-foreground/[0.85] font-medium max-w-md">
                 Transforming climate action into investable assets
               </p>
             </FadeInSection>
