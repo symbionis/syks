@@ -71,7 +71,7 @@ const ReechIntroSection = () => {
               </div>
 
               {/* DIU Card */}
-              <div className="border-2 border-lime bg-background px-6 py-5 rounded-b-sm">
+              <div className="bg-background px-6 py-5 rounded-b-sm">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-8 bg-lime rounded-full" />
                   <div>
