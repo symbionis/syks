@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Logo & tagline */}
           <div className="md:col-span-2">
-            <img src={logoIvory} alt="SYKS" className="h-6 mb-6" />
+            <img src={logoIvory} alt="SYKS" className="w-[80px] h-auto mb-6" />
             <p className="font-serif text-ivory/50 italic text-lg max-w-md">
               Where digital trust meets the real world
             </p>

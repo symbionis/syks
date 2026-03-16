@@ -46,7 +46,7 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${bgClass}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16 lg:h-20">
         <Link to="/" className="flex-shrink-0">
-          <img src={logo} alt="SYKS" className="h-6 lg:h-7 w-auto transition-all duration-300" />
+          <img src={logo} alt="SYKS" className="w-[80px] h-auto transition-all duration-300" />
         </Link>
 
         {/* Desktop nav */}
