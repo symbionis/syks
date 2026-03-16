@@ -393,12 +393,11 @@ const Infrastructure = () => {
           <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="flex items-center gap-3 mb-4">
-                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-                  {[0, 8, 16].map(x =>
-                    [0, 8, 16].map(y => (
-                      <circle key={`${x}-${y}`} cx={x + 4} cy={y + 4} r="3" fill="hsl(210 93% 12%)" />
-                    ))
-                  )}
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                  <circle cx="5" cy="5" r="3.5" fill="hsl(210 93% 12%)" />
+                  <circle cx="15" cy="5" r="3.5" fill="hsl(210 93% 12%)" />
+                  <circle cx="5" cy="15" r="3.5" fill="hsl(210 93% 12%)" />
+                  <circle cx="15" cy="15" r="3.5" fill="hsl(210 93% 12%)" />
                 </svg>
                 <span className="text-xs font-medium tracking-widest uppercase text-foreground/50">Layer 4</span>
               </div>
