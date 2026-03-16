@@ -36,7 +36,7 @@ const Navbar = () => {
     setMobileOpen(false);
   }, [location]);
 
-  const logo = isOnDark && !scrolled ? logoIvory : logoNavy;
+  const logo = isOnDark && !scrolled ? logoIvory : logoBlue;
   const textColor = isOnDark && !scrolled ? 'text-ivory' : 'text-navy';
   const bgClass = scrolled
     ? 'bg-canvas/90 backdrop-blur-md shadow-sm'
