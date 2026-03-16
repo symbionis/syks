@@ -9,7 +9,7 @@ const layers = [
       'Integrity starts at the point of capture. Our infrastructure ensures that field measurements, monitoring outputs, and operational data are recorded with provenance and immutability from the moment they are generated.',
     shape: (
       <svg viewBox="0 0 80 80" className="w-14 h-14" aria-hidden="true">
-        <circle cx="40" cy="40" r="34" fill="hsl(var(--ivory))" stroke="hsl(var(--navy))" strokeWidth="3" />
+        <circle cx="40" cy="40" r="34" fill="hsl(var(--ivory))" />
       </svg>
     ),
   },
