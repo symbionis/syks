@@ -1,5 +1,12 @@
 import { Link } from 'react-router-dom';
 import FadeInSection from '@/components/FadeInSection';
+import {
+  DataShape,
+  OracleShape,
+  IntegrityShape,
+  ConnectivityShape,
+  DataShapeBg,
+} from '@/components/LayerShapes';
 
 const layers = [
   {
@@ -7,50 +14,28 @@ const layers = [
     descriptor: 'The source of truth',
     description:
       'Integrity starts at the point of capture. Our infrastructure ensures that field measurements, monitoring outputs, and operational data are recorded with provenance and immutability from the moment they are generated.',
-    shape: (
-      <svg viewBox="0 0 80 80" className="w-14 h-14" aria-hidden="true">
-        <circle cx="40" cy="40" r="34" fill="hsl(var(--ivory))" />
-      </svg>
-    ),
+    shape: <DataShape size={56} />,
   },
   {
     name: 'Oracle',
     descriptor: 'The real-world interface',
     description:
       'The bridge between physical reality and digital representation. Our oracle services translate verified real-world outcomes into on-chain records, unlocking value that was previously trapped in analogue processes.',
-    shape: (
-      <svg viewBox="0 0 80 80" className="w-14 h-14" aria-hidden="true">
-        <path
-          d="M40,8 C22.3,8 8,22.3 8,40 L8,72 L28,72 L28,40 C28,33.4 33.4,28 40,28 C46.6,28 52,33.4 52,40 L52,72 L72,72 L72,40 C72,22.3 57.7,8 40,8"
-          fill="hsl(var(--lime))"
-        />
-      </svg>
-    ),
+    shape: <OracleShape size={56} />,
   },
   {
     name: 'Integrity',
     descriptor: 'The trust layer',
     description:
       'Collective validation, peer-review verification, and immutable registry. This is where data becomes certified, credible claims — governed by transparent, decentralised processes under Swiss legal frameworks.',
-    shape: (
-      <svg viewBox="0 0 80 80" className="w-14 h-14" aria-hidden="true">
-        <rect x="10" y="10" width="60" height="60" fill="hsl(var(--blue))" />
-      </svg>
-    ),
+    shape: <IntegrityShape size={56} color="hsl(var(--blue))" />,
   },
   {
     name: 'Connectivity',
     descriptor: 'The glue',
     description:
       'Infrastructure is only useful if it brings people together. We connect corporates, investors, project developers, certification bodies, and insurers into a shared trust fabric — enabling collaboration where confidence was previously missing.',
-    shape: (
-      <svg viewBox="0 0 80 80" className="w-14 h-14" aria-hidden="true">
-        <circle cx="24" cy="24" r="10" fill="hsl(var(--lime))" />
-        <circle cx="56" cy="24" r="10" fill="hsl(var(--lime))" />
-        <circle cx="24" cy="56" r="10" fill="hsl(var(--lime))" />
-        <circle cx="56" cy="56" r="10" fill="hsl(var(--lime))" />
-      </svg>
-    ),
+    shape: <ConnectivityShape size={56} />,
   },
 ];
 
@@ -59,9 +44,7 @@ const TrustLayersSection = () => {
     <section className="relative bg-canvas py-28 lg:py-40 overflow-hidden">
       {/* Decorative partial circle */}
       <div className="absolute -left-[200px] top-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none opacity-40">
-        <svg viewBox="0 0 200 200" className="w-full h-full" aria-hidden="true">
-          <circle cx="100" cy="100" r="95" fill="hsl(var(--ivory))" />
-        </svg>
+        <DataShapeBg className="w-full h-full" />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-10">
