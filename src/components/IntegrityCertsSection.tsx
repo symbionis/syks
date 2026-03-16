@@ -26,7 +26,7 @@ const cards = [
 
 const IntegrityCertsSection = () => {
   return (
-    <section className="bg-canvas py-28 lg:py-40">
+    <section className="bg-canvas py-24 lg:py-28">
       <div className="max-w-5xl mx-auto px-6 lg:px-10">
         <FadeInSection>
           <h2 className="text-section text-foreground">Integrity Certificates — The trust engine</h2>
