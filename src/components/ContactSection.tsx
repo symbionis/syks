@@ -1,10 +1,13 @@
 import { useState, FormEvent } from 'react';
 import FadeInSection from '@/components/FadeInSection';
+import { supabase } from '@/integrations/supabase/client';
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitError, setSubmitError] = useState('');
 
   const validate = () => {
     const errs: Record<string, string> = {};
@@ -15,12 +18,30 @@ const ContactSection = () => {
     return errs;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const errs = validate();
     setErrors(errs);
-    if (Object.keys(errs).length === 0) {
+    setSubmitError('');
+    if (Object.keys(errs).length > 0) return;
+
+    setSending(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: form.name.trim(),
+          email: form.email.trim(),
+          message: form.message.trim(),
+        },
+      });
+
+      if (error) throw error;
       setSubmitted(true);
+    } catch (err) {
+      console.error('Failed to send message:', err);
+      setSubmitError('Something went wrong. Please try again or email us directly.');
+    } finally {
+      setSending(false);
     }
   };
 
@@ -94,11 +115,16 @@ const ContactSection = () => {
                 {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
               </div>
 
+              {submitError && (
+                <p className="text-sm text-red-600 text-center">{submitError}</p>
+              )}
+
               <button
                 type="submit"
-                className="w-full px-7 py-3.5 bg-lime text-navy font-medium text-sm tracking-wide rounded-sm hover:brightness-110 transition-all duration-200"
+                disabled={sending}
+                className="w-full px-7 py-3.5 bg-lime text-navy font-medium text-sm tracking-wide rounded-sm hover:brightness-110 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send message →
+                {sending ? 'Sending...' : 'Send message →'}
               </button>
             </form>
           </FadeInSection>
