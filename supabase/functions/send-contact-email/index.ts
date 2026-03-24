@@ -34,9 +34,9 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         From: 'contact@syks.co',
-        To: 'contact@syks.co',
+        To: 'frank@syks.co',
         ReplyTo: email,
-        Subject: `SYKS Contact: ${name}`,
+        Subject: `[Website Contact] ${name}`,
         TextBody: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
         HtmlBody: `
           <h2>New contact form submission</h2>
