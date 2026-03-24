@@ -1,40 +1,68 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useCallback } from 'react';
 import FadeInSection from '@/components/FadeInSection';
 import { supabase } from '@/integrations/supabase/client';
+
+const validateField = (field: string, value: string) => {
+  const v = value.trim();
+  if (!v) {
+    if (field === 'name') return 'Name is required';
+    if (field === 'email') return 'Email is required';
+    if (field === 'message') return 'Message is required';
+  }
+  if (field === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+    return 'Please enter a valid email address';
+  }
+  return '';
+};
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [submitError, setSubmitError] = useState('');
 
-  const validate = () => {
-    const errs: Record<string, string> = {};
-    if (!form.name.trim()) errs.name = 'Name is required';
-    if (!form.email.trim()) errs.email = 'Email is required';
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) errs.email = 'Invalid email';
-    if (!form.message.trim()) errs.message = 'Message is required';
-    return errs;
-  };
+  const handleChange = useCallback((field: string, value: string) => {
+    setForm(prev => ({ ...prev, [field]: value }));
+    if (touched[field]) {
+      const err = validateField(field, value);
+      setErrors(prev => ({ ...prev, [field]: err }));
+    }
+  }, [touched]);
+
+  const handleBlur = useCallback((field: string) => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+    const err = validateField(field, form[field as keyof typeof form]);
+    setErrors(prev => ({ ...prev, [field]: err }));
+  }, [form]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const errs = validate();
-    setErrors(errs);
     setSubmitError('');
-    if (Object.keys(errs).length > 0) return;
+
+    // Validate all fields
+    const allTouched = { name: true, email: true, message: true };
+    setTouched(allTouched);
+
+    const newErrors: Record<string, string> = {};
+    for (const field of ['name', 'email', 'message'] as const) {
+      const err = validateField(field, form[field]);
+      if (err) newErrors[field] = err;
+    }
+    setErrors(newErrors);
+
+    if (Object.values(newErrors).some(e => e)) return;
 
     setSending(true);
     try {
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
         body: {
           name: form.name.trim(),
           email: form.email.trim(),
           message: form.message.trim(),
         },
       });
-
       if (error) throw error;
       setSubmitted(true);
     } catch (err) {
@@ -44,6 +72,8 @@ const ContactSection = () => {
       setSending(false);
     }
   };
+
+  const isFormValid = form.name.trim() && form.email.trim() && form.message.trim() && !Object.values(errors).some(e => e);
 
   return (
     <section id="contact" className="bg-secondary py-24 lg:py-32">
@@ -66,7 +96,7 @@ const ContactSection = () => {
           </FadeInSection>
         ) : (
           <FadeInSection delay={200}>
-            <form onSubmit={handleSubmit} className="mt-12 space-y-6">
+            <form onSubmit={handleSubmit} className="mt-12 space-y-6" noValidate>
               <div>
                 <label htmlFor="contact-name" className="block text-sm font-medium text-foreground/70 mb-1.5">
                   Name
@@ -76,11 +106,12 @@ const ContactSection = () => {
                   type="text"
                   maxLength={100}
                   value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full px-4 py-3 bg-background border border-foreground/10 rounded-sm text-foreground text-sm placeholder:text-foreground/30 focus:outline-none focus:border-foreground/30 transition-colors"
+                  onChange={(e) => handleChange('name', e.target.value)}
+                  onBlur={() => handleBlur('name')}
+                  className={`w-full px-4 py-3 bg-background border rounded-sm text-foreground text-sm placeholder:text-foreground/30 focus:outline-none transition-colors ${errors.name && touched.name ? 'border-red-500' : 'border-foreground/10 focus:border-foreground/30'}`}
                   placeholder="Your name"
                 />
-                {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
+                {errors.name && touched.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
               </div>
 
               <div>
@@ -92,11 +123,12 @@ const ContactSection = () => {
                   type="email"
                   maxLength={255}
                   value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-background border border-foreground/10 rounded-sm text-foreground text-sm placeholder:text-foreground/30 focus:outline-none focus:border-foreground/30 transition-colors"
+                  onChange={(e) => handleChange('email', e.target.value)}
+                  onBlur={() => handleBlur('email')}
+                  className={`w-full px-4 py-3 bg-background border rounded-sm text-foreground text-sm placeholder:text-foreground/30 focus:outline-none transition-colors ${errors.email && touched.email ? 'border-red-500' : 'border-foreground/10 focus:border-foreground/30'}`}
                   placeholder="you@company.com"
                 />
-                {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+                {errors.email && touched.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
               </div>
 
               <div>
@@ -108,11 +140,12 @@ const ContactSection = () => {
                   maxLength={1000}
                   rows={5}
                   value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full px-4 py-3 bg-background border border-foreground/10 rounded-sm text-foreground text-sm placeholder:text-foreground/30 focus:outline-none focus:border-foreground/30 transition-colors resize-none"
+                  onChange={(e) => handleChange('message', e.target.value)}
+                  onBlur={() => handleBlur('message')}
+                  className={`w-full px-4 py-3 bg-background border rounded-sm text-foreground text-sm placeholder:text-foreground/30 focus:outline-none transition-colors resize-none ${errors.message && touched.message ? 'border-red-500' : 'border-foreground/10 focus:border-foreground/30'}`}
                   placeholder="How can we help?"
                 />
-                {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
+                {errors.message && touched.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
               </div>
 
               {submitError && (
@@ -121,7 +154,7 @@ const ContactSection = () => {
 
               <button
                 type="submit"
-                disabled={sending}
+                disabled={sending || !isFormValid}
                 className="w-full px-7 py-3.5 bg-lime text-navy font-medium text-sm tracking-wide rounded-sm hover:brightness-110 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {sending ? 'Sending...' : 'Send message →'}
