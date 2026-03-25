@@ -33,8 +33,8 @@ serve(async (req) => {
         'X-Postmark-Server-Token': POSTMARK_SERVER_TOKEN,
       },
       body: JSON.stringify({
-        From: 'contact@syks.co',
-        To: 'frank@syks.co',
+        From: 'talk@syks.co',
+        To: 'talk@syks.co',
         ReplyTo: email,
         Subject: `[Website Contact] ${name}`,
         TextBody: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
