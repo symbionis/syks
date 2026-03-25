@@ -25,13 +25,16 @@ serve(async (req) => {
       throw new Error('POSTMARK_SERVER_TOKEN is not configured');
     }
 
-    const response = await fetch('https://api.postmarkapp.com/email', {
+    const postmarkHeaders = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-Postmark-Server-Token': POSTMARK_SERVER_TOKEN,
+    };
+
+    // 1. Send notification to SYKS team
+    const notifyResponse = await fetch('https://api.postmarkapp.com/email', {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'X-Postmark-Server-Token': POSTMARK_SERVER_TOKEN,
-      },
+      headers: postmarkHeaders,
       body: JSON.stringify({
         From: 'talk@syks.co',
         To: 'talk@syks.co',
@@ -48,12 +51,38 @@ serve(async (req) => {
       }),
     });
 
-    if (!response.ok) {
-      const errorData = await response.text();
-      throw new Error(`Postmark API error [${response.status}]: ${errorData}`);
+    if (!notifyResponse.ok) {
+      const errorData = await notifyResponse.text();
+      throw new Error(`Postmark API error [${notifyResponse.status}]: ${errorData}`);
     }
 
-    const data = await response.json();
+    // 2. Send confirmation to the submitter
+    await fetch('https://api.postmarkapp.com/email', {
+      method: 'POST',
+      headers: postmarkHeaders,
+      body: JSON.stringify({
+        From: 'talk@syks.co',
+        To: email,
+        Subject: 'Thank you for contacting SYKS',
+        TextBody: `Hi ${name},\n\nThank you for reaching out to us. We've received your message and will get back to you shortly.\n\nBest regards,\nThe SYKS Team`,
+        HtmlBody: `
+          <div style="font-family: Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 40px 24px; color: #021d39;">
+            <h2 style="font-size: 22px; font-weight: 600; margin: 0 0 20px;">Thank you, ${name}.</h2>
+            <p style="font-size: 15px; line-height: 1.6; color: #021d39cc; margin: 0 0 16px;">
+              We've received your message and a member of our team will be in touch shortly.
+            </p>
+            <p style="font-size: 15px; line-height: 1.6; color: #021d39cc; margin: 0 0 32px;">
+              In the meantime, feel free to explore our infrastructure at <a href="https://syks.co" style="color: #2158a8; text-decoration: none;">syks.co</a>.
+            </p>
+            <p style="font-size: 14px; color: #021d3980; margin: 0;">
+              Best regards,<br/>The SYKS Team
+            </p>
+          </div>
+        `,
+      }),
+    });
+
+    const data = await notifyResponse.json();
     return new Response(JSON.stringify({ success: true, messageId: data.MessageID }), {
       status: 200,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
