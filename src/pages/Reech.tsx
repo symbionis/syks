@@ -100,7 +100,7 @@ const Reech = () => {
         <section className="bg-canvas py-28 lg:py-36">
           <div className="max-w-[720px] mx-auto px-6">
             <FadeInSection>
-              <span className="text-xs font-medium tracking-widest uppercase" style={{ color: 'hsl(71 64% 45%)' }}>
+              <span className="text-xs font-medium tracking-widest uppercase text-brand-blue">
                 The Challenge
               </span>
               <h2 className="mt-4 text-section text-foreground">
@@ -145,7 +145,7 @@ const Reech = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="text-center max-w-3xl mx-auto mb-16">
-                <span className="text-xs font-medium tracking-widest uppercase" style={{ color: 'hsl(71 64% 45%)' }}>
+                <span className="text-xs font-medium tracking-widest uppercase text-brand-blue">
                   Framework
                 </span>
                 <h2 className="mt-4 text-section text-foreground">
@@ -201,7 +201,7 @@ const Reech = () => {
         <section className="bg-canvas py-28 lg:py-36">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <FadeInSection>
-              <span className="text-xs font-medium tracking-widest uppercase" style={{ color: 'hsl(71 64% 45%)' }}>
+              <span className="text-xs font-medium tracking-widest uppercase text-brand-blue">
                 Asset Class
               </span>
               <h2 className="mt-4 text-section text-foreground max-w-2xl">
@@ -244,7 +244,7 @@ const Reech = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="text-center max-w-3xl mx-auto mb-16">
-                <span className="text-xs font-medium tracking-widest uppercase" style={{ color: 'hsl(71 64% 45%)' }}>
+                <span className="text-xs font-medium tracking-widest uppercase text-brand-blue">
                   Participants
                 </span>
                 <h2 className="mt-4 text-section text-foreground">
@@ -258,7 +258,7 @@ const Reech = () => {
                 <FadeInSection key={s.title} delay={i * 100}>
                   <button
                     onClick={() => setExpandedCard(expandedCard === i ? null : i)}
-                    className="w-full text-left p-6 lg:p-8 rounded-sm border border-foreground/[0.08] bg-secondary hover:border-lime/40 transition-all duration-300 group"
+                    className="w-full text-left p-6 lg:p-8 rounded-sm border border-foreground/[0.08] bg-secondary hover:border-brand-blue/40 transition-all duration-300 group"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
@@ -266,11 +266,11 @@ const Reech = () => {
                         <p className="mt-2 text-foreground/[0.7] text-sm leading-relaxed">{s.summary}</p>
                       </div>
                       <span
-                        className="flex-shrink-0 w-8 h-8 rounded-full bg-lime/15 flex items-center justify-center transition-transform duration-300"
+                        className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center transition-transform duration-300"
                         style={{ transform: expandedCard === i ? 'rotate(45deg)' : 'rotate(0deg)' }}
                       >
                         <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-                          <path d="M3 7h8M7 3v8" stroke="hsl(71 64% 45%)" strokeWidth="1.5" strokeLinecap="round" />
+                          <path d="M3 7h8M7 3v8" stroke="hsl(216 67% 40%)" strokeWidth="1.5" strokeLinecap="round" />
                         </svg>
                       </span>
                     </div>
@@ -296,7 +296,7 @@ const Reech = () => {
         <section className="bg-secondary py-28 lg:py-36">
           <div className="max-w-[720px] mx-auto px-6">
             <FadeInSection>
-              <span className="text-xs font-medium tracking-widest uppercase" style={{ color: 'hsl(71 64% 45%)' }}>
+              <span className="text-xs font-medium tracking-widest uppercase text-brand-blue">
                 Risk Architecture
               </span>
               <h2 className="mt-4 text-section text-foreground">
