@@ -1,6 +1,5 @@
 import { useState, FormEvent, useCallback } from 'react';
 import FadeInSection from '@/components/FadeInSection';
-import { supabase } from '@/integrations/supabase/client';
 
 const validateField = (field: string, value: string) => {
   const v = value.trim();
@@ -56,14 +55,19 @@ const ContactSection = () => {
 
     setSending(true);
     try {
-      const { error } = await supabase.functions.invoke('send-contact-email', {
-        body: {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
           name: form.name.trim(),
           email: form.email.trim(),
           message: form.message.trim(),
-        },
+        }),
       });
-      if (error) throw error;
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || `Request failed (${response.status})`);
+      }
       setSubmitted(true);
     } catch (err) {
       console.error('Failed to send message:', err);
