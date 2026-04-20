@@ -15,20 +15,17 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      {/* Small lime circle bottom-left */}
-      <div className="absolute left-[8%] bottom-[12%] w-24 h-24 lg:w-32 lg:h-32 animate-drift-reverse pointer-events-none">
+      {/* Large ivory circle bleeding off bottom-left */}
+      <div className="absolute left-[-12%] bottom-[-18%] w-[42vw] max-w-[560px] min-w-[360px] aspect-square animate-drift-reverse pointer-events-none">
         <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden="true">
-          <circle cx="50" cy="50" r="50" fill="hsl(71 64% 63% / 0.15)" />
+          <circle cx="50" cy="50" r="50" fill="hsl(60 12% 85% / 0.22)" />
         </svg>
       </div>
-
-      {/* Thin lime line */}
-      <div className="absolute right-[5%] bottom-[35%] w-40 h-1 bg-lime/10 animate-drift pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-24 pb-20">
         <FadeInSection>
           <h1 className="text-headline text-ivory tracking-tight max-w-3xl">
-            Climate Finance Infrastructure
+            Climate finance infrastructure
           </h1>
         </FadeInSection>
 

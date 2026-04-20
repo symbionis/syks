@@ -47,38 +47,33 @@ const ReechIntroSection = () => {
 
           {/* Diagram column */}
           <FadeInSection delay={200}>
-            <div className="flex flex-col gap-0 mt-4 lg:mt-12">
+            <div className="flex flex-col gap-2 mt-4 lg:mt-12">
               {/* Layer 1 */}
-              <div className="bg-navy text-secondary px-6 py-5 rounded-t-sm">
-                <p className="text-xs uppercase tracking-widest text-secondary/50 mb-1">Layer 1</p>
-                <p className="font-medium text-sm">Recognised financial architecture</p>
+              <div className="border-l-4 border-lime bg-foreground/[0.04] px-6 py-5 rounded-sm">
+                <p className="text-xs uppercase tracking-widest text-foreground/50 mb-1">Layer 1</p>
+                <p className="font-medium text-sm text-foreground">Recognised financial architecture</p>
               </div>
 
               {/* Connector */}
-              <div className="flex justify-center py-3">
-                <div className="w-px h-8 bg-foreground/20" />
+              <div className="flex justify-center py-1">
+                <div className="w-px h-4 bg-foreground/20" />
               </div>
 
               {/* Layer 2 */}
-              <div className="bg-accent text-accent-foreground px-6 py-5">
-                <p className="text-xs uppercase tracking-widest text-accent-foreground/50 mb-1">Layer 2</p>
-                <p className="font-medium text-sm">Incentive Value Engine (IVE)</p>
+              <div className="border-l-4 border-lime bg-foreground/[0.08] px-6 py-5 rounded-sm">
+                <p className="text-xs uppercase tracking-widest text-foreground/50 mb-1">Layer 2</p>
+                <p className="font-medium text-sm text-foreground">Incentive Value Engine (IVE)</p>
               </div>
 
               {/* Connector */}
-              <div className="flex justify-center py-3">
-                <div className="w-px h-8 bg-foreground/20" />
+              <div className="flex justify-center py-1">
+                <div className="w-px h-4 bg-foreground/20" />
               </div>
 
-              {/* DIU Card */}
-              <div className="bg-background px-6 py-5 rounded-b-sm">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-8 bg-lime rounded-full" />
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-foreground/50 mb-0.5">Digital Impact Unit</p>
-                    <p className="font-medium text-foreground text-sm">DIU</p>
-                  </div>
-                </div>
+              {/* Output */}
+              <div className="border-l-4 border-lime bg-background px-6 py-5 rounded-sm">
+                <p className="text-xs uppercase tracking-widest text-foreground/50 mb-1">Output</p>
+                <p className="font-medium text-sm text-foreground">Digital Impact Unit</p>
               </div>
 
               <p className="mt-5 text-center text-foreground/50 text-xs italic font-serif">
