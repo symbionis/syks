@@ -4,21 +4,18 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FadeInSection from '@/components/FadeInSection';
 import {
-  DataShape,
-  OracleShape,
-  IntegrityShape,
-  ConnectivityShape,
   DataShapeBg,
   OracleShapeBg,
   IntegrityShapeBg,
   ConnectivityShapeBg,
 } from '@/components/LayerShapes';
+import { LAYER_COLORS, SHAPE_BY_LAYER } from '@/components/InlineLayerShapes';
 
 const layers = [
-  { id: 'data', label: 'Data', color: 'hsl(60 12% 85%)' },
-  { id: 'oracle', label: 'Oracle', color: 'hsl(71 64% 63%)' },
-  { id: 'integrity', label: 'Integrity', color: 'hsl(216 67% 40%)' },
-  { id: 'connectivity', label: 'Connectivity', color: 'hsl(210 93% 12%)' },
+  { id: 'data', label: 'Data' as const },
+  { id: 'oracle', label: 'Oracle' as const },
+  { id: 'integrity', label: 'Integrity' as const },
+  { id: 'connectivity', label: 'Connectivity' as const },
 ];
 
 const Infrastructure = () => {
@@ -70,44 +67,33 @@ const Infrastructure = () => {
               </FadeInSection>
             </div>
 
-            {/* Stack diagram */}
+            {/* Stack diagram — lime-rail tinted-ivory crescendo, matches home REECH stack */}
             <FadeInSection delay={300}>
-              <div className="mt-12 lg:mt-0 lg:flex-shrink-0 flex flex-col items-center gap-2 w-full lg:w-[280px]">
-                {[
-                  {
-                    label: 'Data',
-                    shape: <DataShape size={20} />,
-                    bg: 'hsl(60 12% 85% / 0.12)',
-                    border: 'hsl(60 12% 85% / 0.25)',
-                  },
-                  {
-                    label: 'Oracle',
-                    shape: <OracleShape size={16} />,
-                    bg: 'hsl(71 64% 63% / 0.15)',
-                    border: 'hsl(71 64% 63% / 0.3)',
-                  },
-                  {
-                    label: 'Integrity',
-                    shape: <IntegrityShape size={20} />,
-                    bg: 'hsl(216 67% 40% / 0.2)',
-                    border: 'hsl(216 67% 40% / 0.35)',
-                  },
-                  {
-                    label: 'Connectivity',
-                    shape: <ConnectivityShape size={20} />,
-                    bg: 'hsl(71 64% 63% / 0.12)',
-                    border: 'hsl(71 64% 63% / 0.25)',
-                  },
-                ].map((layer) => (
-                  <div
-                    key={layer.label}
-                    className="w-full flex items-center gap-4 px-5 py-4 rounded-sm"
-                    style={{ backgroundColor: layer.bg, border: `1px solid ${layer.border}` }}
-                  >
-                    {layer.shape}
-                    <span className="text-sm font-medium tracking-wide text-ivory/70">{layer.label}</span>
-                  </div>
-                ))}
+              <div className="mt-12 lg:mt-0 lg:flex-shrink-0 flex flex-col gap-2 w-full lg:w-[300px]">
+                {layers.map((layer, i) => {
+                  const Shape = SHAPE_BY_LAYER[layer.label];
+                  const tints = [0.05, 0.09, 0.14, 0.2];
+                  return (
+                    <div
+                      key={layer.id}
+                      className="border-l-4 border-lime rounded-sm px-5 py-4 flex items-center gap-4"
+                      style={{
+                        backgroundColor: `hsl(60 12% 85% / ${tints[i]})`,
+                        borderTop: '1px solid hsl(60 12% 85% / 0.12)',
+                        borderRight: '1px solid hsl(60 12% 85% / 0.12)',
+                        borderBottom: '1px solid hsl(60 12% 85% / 0.12)',
+                      }}
+                    >
+                      <div className="flex-shrink-0 w-9 h-9 bg-canvas rounded-sm flex items-center justify-center p-1.5">
+                        <Shape fill={LAYER_COLORS[layer.label]} />
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase tracking-widest text-ivory/50">Layer {i + 1}</p>
+                        <p className="text-sm font-medium text-ivory">{layer.label}</p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </FadeInSection>
           </div>
@@ -125,7 +111,7 @@ const Infrastructure = () => {
                 <span
                   className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                   style={{
-                    backgroundColor: l.color,
+                    backgroundColor: LAYER_COLORS[l.label],
                     opacity: activeLayer === l.id ? 1 : 0.3,
                     transform: activeLayer === l.id ? 'scale(1.4)' : 'scale(1)',
                   }}
@@ -159,7 +145,9 @@ const Infrastructure = () => {
           <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="flex items-center gap-3 mb-4">
-                <DataShape size={18} />
+                <div className="w-7 h-7 bg-canvas rounded-sm flex items-center justify-center p-1">
+                  {(() => { const S = SHAPE_BY_LAYER.Data; return <S fill={LAYER_COLORS.Data} />; })()}
+                </div>
                 <span className="text-xs font-medium tracking-widest uppercase text-foreground/50">Layer 1</span>
               </div>
               <h2 className="text-section text-foreground">Data · The source of truth</h2>
@@ -223,7 +211,9 @@ const Infrastructure = () => {
           <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="flex items-center gap-3 mb-4">
-                <OracleShape size={16} />
+                <div className="w-7 h-7 bg-canvas rounded-sm flex items-center justify-center p-1">
+                  {(() => { const S = SHAPE_BY_LAYER.Oracle; return <S fill={LAYER_COLORS.Oracle} />; })()}
+                </div>
                 <span className="text-xs font-medium tracking-widest uppercase text-foreground/50">Layer 2</span>
               </div>
               <h2 className="text-section text-foreground">Oracle · The real-world interface</h2>
@@ -287,7 +277,9 @@ const Infrastructure = () => {
           <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="flex items-center gap-3 mb-4">
-                <IntegrityShape size={18} />
+                <div className="w-7 h-7 bg-canvas rounded-sm flex items-center justify-center p-1">
+                  {(() => { const S = SHAPE_BY_LAYER.Integrity; return <S fill={LAYER_COLORS.Integrity} />; })()}
+                </div>
                 <span className="text-xs font-medium tracking-widest uppercase text-foreground/50">Layer 3</span>
               </div>
               <h2 className="text-section text-foreground">Integrity · The trust layer</h2>
@@ -362,7 +354,9 @@ const Infrastructure = () => {
           <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10">
             <FadeInSection>
               <div className="flex items-center gap-3 mb-4">
-                <ConnectivityShape size={20} />
+                <div className="w-7 h-7 bg-canvas rounded-sm flex items-center justify-center p-1">
+                  {(() => { const S = SHAPE_BY_LAYER.Connectivity; return <S fill={LAYER_COLORS.Connectivity} />; })()}
+                </div>
                 <span className="text-xs font-medium tracking-widest uppercase text-foreground/50">Layer 4</span>
               </div>
               <h2 className="text-section text-foreground">Connectivity · The glue</h2>
