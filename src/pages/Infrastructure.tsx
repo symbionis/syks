@@ -78,12 +78,10 @@ const Infrastructure = () => {
                   return (
                     <div
                       key={layer.id}
-                      className="border-l-4 border-lime rounded-sm px-5 py-4 flex items-center gap-4"
+                      className="rounded-sm px-5 py-4 flex items-center gap-4"
                       style={{
                         backgroundColor: `hsl(60 12% 85% / ${tints[i]})`,
-                        borderTop: `1px solid hsl(60 12% 85% / ${borders[i]})`,
-                        borderRight: `1px solid hsl(60 12% 85% / ${borders[i]})`,
-                        borderBottom: `1px solid hsl(60 12% 85% / ${borders[i]})`,
+                        border: `1px solid hsl(60 12% 85% / ${borders[i]})`,
                       }}
                     >
                       <div className="flex-shrink-0 w-7 h-7">
