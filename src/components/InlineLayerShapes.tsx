@@ -7,6 +7,15 @@ export const LAYER_COLORS = {
   Connectivity: LAYER_PAL.blue,
 } as const;
 
+// On navy surfaces the navy arch disappears — use the canonical brand mapping
+// from the branding proposal (ivory circle, lime arch, blue square, lime dots).
+export const LAYER_COLORS_DARK = {
+  Data: '#E1E1D3',
+  Oracle: LAYER_PAL.lime,
+  Integrity: LAYER_PAL.blue,
+  Connectivity: LAYER_PAL.lime,
+} as const;
+
 export const Circle = ({ fill }: { fill: string }) => (
   <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" fill={fill} /></svg>
 );

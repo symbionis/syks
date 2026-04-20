@@ -9,7 +9,7 @@ import {
   IntegrityShapeBg,
   ConnectivityShapeBg,
 } from '@/components/LayerShapes';
-import { LAYER_COLORS, SHAPE_BY_LAYER } from '@/components/InlineLayerShapes';
+import { LAYER_COLORS, LAYER_COLORS_DARK, SHAPE_BY_LAYER } from '@/components/InlineLayerShapes';
 
 const layers = [
   { id: 'data', label: 'Data' as const },
@@ -72,20 +72,22 @@ const Infrastructure = () => {
               <div className="mt-12 lg:mt-0 lg:flex-shrink-0 flex flex-col gap-2 w-full lg:w-[300px]">
                 {layers.map((layer, i) => {
                   const Shape = SHAPE_BY_LAYER[layer.label];
-                  const tints = [0.05, 0.09, 0.14, 0.2];
+                  // Inverted ramp — Layer 1 brightest, Connectivity softest
+                  const tints = [0.26, 0.19, 0.13, 0.08];
+                  const borders = [0.32, 0.24, 0.18, 0.12];
                   return (
                     <div
                       key={layer.id}
                       className="border-l-4 border-lime rounded-sm px-5 py-4 flex items-center gap-4"
                       style={{
                         backgroundColor: `hsl(60 12% 85% / ${tints[i]})`,
-                        borderTop: '1px solid hsl(60 12% 85% / 0.12)',
-                        borderRight: '1px solid hsl(60 12% 85% / 0.12)',
-                        borderBottom: '1px solid hsl(60 12% 85% / 0.12)',
+                        borderTop: `1px solid hsl(60 12% 85% / ${borders[i]})`,
+                        borderRight: `1px solid hsl(60 12% 85% / ${borders[i]})`,
+                        borderBottom: `1px solid hsl(60 12% 85% / ${borders[i]})`,
                       }}
                     >
-                      <div className="flex-shrink-0 w-9 h-9 bg-canvas rounded-sm flex items-center justify-center p-1.5">
-                        <Shape fill={LAYER_COLORS[layer.label]} />
+                      <div className="flex-shrink-0 w-7 h-7">
+                        <Shape fill={LAYER_COLORS_DARK[layer.label]} />
                       </div>
                       <div>
                         <p className="text-[10px] uppercase tracking-widest text-ivory/50">Layer {i + 1}</p>
