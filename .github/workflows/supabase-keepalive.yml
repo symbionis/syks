@@ -1,0 +1,32 @@
+name: Supabase keepalive
+
+# Pings the Xero-MCP Supabase project every 5 days so the free-tier
+# 7-day inactivity auto-pause never fires. Reads one row via PostgREST.
+#
+# Secrets required (Settings → Secrets and variables → Actions):
+#   KEEPALIVE_SUPABASE_URL  e.g. https://ipzczxadcbdxapkfbybl.supabase.co
+#   KEEPALIVE_SUPABASE_KEY  service_role JWT for that project
+
+on:
+  schedule:
+    - cron: '0 6 */5 * *'
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Ping Supabase
+        env:
+          URL: ${{ secrets.KEEPALIVE_SUPABASE_URL }}
+          KEY: ${{ secrets.KEEPALIVE_SUPABASE_KEY }}
+        run: |
+          set -euo pipefail
+          status=$(curl -sS -o /tmp/body -w '%{http_code}' \
+            "$URL/rest/v1/xero_tokens?select=id&limit=1" \
+            -H "apikey: $KEY" \
+            -H "Authorization: Bearer $KEY")
+          echo "HTTP $status"
+          cat /tmp/body
+          test "$status" = "200"
