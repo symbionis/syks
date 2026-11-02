@@ -55,17 +55,20 @@ const Navbar = () => {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className={`text-sm font-medium tracking-wide transition-colors duration-200 hover:opacity-70 ${
-                scrolled ? 'text-navy' : textColor
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                to={link.href}
+                className={`relative py-1.5 text-sm font-medium tracking-wide transition-opacity duration-200 hover:opacity-70 ${
+                  scrolled ? 'text-navy' : textColor
+                } ${isActive ? "after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-[2px] after:bg-lime" : ''}`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Mobile hamburger */}

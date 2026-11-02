@@ -1,41 +1,32 @@
 import { Link } from 'react-router-dom';
 import FadeInSection from '@/components/FadeInSection';
-import {
-  DataShape,
-  OracleShape,
-  IntegrityShape,
-  ConnectivityShape,
-  DataShapeBg,
-} from '@/components/LayerShapes';
+import { DataShapeBg } from '@/components/LayerShapes';
+import { LAYER_COLORS, SHAPE_BY_LAYER } from '@/components/InlineLayerShapes';
 
 const layers = [
   {
-    name: 'Data',
+    name: 'Data' as const,
     descriptor: 'The source of truth',
     description:
       'Integrity starts at the point of capture. Our infrastructure ensures that field measurements, monitoring outputs, and operational data are recorded with provenance and immutability from the moment they are generated.',
-    shape: <DataShape size={56} />,
   },
   {
-    name: 'Oracle',
+    name: 'Oracle' as const,
     descriptor: 'The real-world interface',
     description:
       'The bridge between physical reality and digital representation. Our oracle services translate verified real-world outcomes into on-chain records, unlocking value that was previously trapped in analogue processes.',
-    shape: <OracleShape size={56} />,
   },
   {
-    name: 'Integrity',
+    name: 'Integrity' as const,
     descriptor: 'The trust layer',
     description:
       'Collective validation, peer-review verification, and immutable registry. This is where data becomes certified, credible claims — governed by transparent, decentralised processes under Swiss legal frameworks.',
-    shape: <IntegrityShape size={56} />,
   },
   {
-    name: 'Connectivity',
+    name: 'Connectivity' as const,
     descriptor: 'The glue',
     description:
       'Infrastructure is only useful if it brings people together. We connect corporates, investors, project developers, certification bodies, and insurers into a shared trust fabric — enabling collaboration where confidence was previously missing.',
-    shape: <ConnectivityShape size={56} />,
   },
 ];
 
@@ -57,20 +48,25 @@ const TrustLayersSection = () => {
           </p>
         </FadeInSection>
 
-        <div className="mt-16 flex flex-col gap-8">
-          {layers.map((layer, i) => (
-            <FadeInSection key={layer.name} delay={150 + i * 100}>
-              <div className="flex items-start gap-6 bg-background rounded-sm p-6 lg:p-8">
-                <div className="flex-shrink-0 mt-1">{layer.shape}</div>
-                <div>
-                  <h3 className="text-lg font-medium text-foreground">
-                    {layer.name} <span className="text-foreground/60">· {layer.descriptor}</span>
+        <div className="mt-14 flex flex-col gap-3">
+          {layers.map((layer, i) => {
+            const Shape = SHAPE_BY_LAYER[layer.name];
+            return (
+            <FadeInSection key={layer.name} delay={150 + i * 80}>
+              <div className="flex items-start gap-5 bg-background rounded-sm px-6 py-5 lg:px-7 lg:py-6">
+                <div className="flex-shrink-0 w-14 h-14 bg-canvas rounded-sm flex items-center justify-center p-3">
+                  <Shape fill={LAYER_COLORS[layer.name]} />
+                </div>
+                <div className="pt-1">
+                  <h3 className="text-[15px] font-medium text-foreground leading-snug">
+                    {layer.name} <span className="text-foreground/60 font-normal">— {layer.descriptor}</span>
                   </h3>
-                  <p className="mt-2 text-foreground/[0.82] text-[15px] leading-relaxed">{layer.description}</p>
+                  <p className="mt-1 text-foreground/[0.78] text-[13px] leading-[1.55]">{layer.description}</p>
                 </div>
               </div>
             </FadeInSection>
-          ))}
+            );
+          })}
         </div>
 
         <FadeInSection delay={600}>
